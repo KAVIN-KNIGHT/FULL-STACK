@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - MediKart</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 🔹 General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
+            text-align: center;
+            color: black;
+        }
+
+        /* 🔹 Header */
+        header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    
+    height: 50px;
+}
+.logo {
+    display: flex;
+    align-items: center; /* Keeps text and logo aligned */
+    gap: 5%; /* Adds spacing between logo and text */
+}
+
+.logo p {
+    font-size: 20px; /* Adjust size as needed */
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+}
+.cart-icon {
+    font-size: 24px;  /* Adjust the size (Default: 16px) */
+    color: #004d40;   /* Change the color */
+    cursor: pointer;  /* Makes it clickable */
+    transition: transform 0.2s ease-in-out; /* Smooth effect */
+}
+
+.login-cart {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+button {
+    background-color: #004d40;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+        /* 🔹 Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            color: #004d40;
+        }
+
+        /* 🔹 Search Box */
+        .search-box {
+            width: 60%;
+            padding: 12px;
+            border-radius: 30px;
+            border: 2px solid #004d40;
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+            outline: none;
+        }
+
+        .search-box:focus {
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+            transform: scale(1.05);
+        }
+
+        /* 🔹 Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        /* 🔹 Product Cards */
+        .product-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product-card .price {
+            font-size: 16px;
+            color: #2ecc71;
+            margin-bottom: 10px;
+        }
+
+        .add-to-cart {
+            background-color: #004d40;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #00796b;
+        }
+
+        /* 🔹 Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🔹 Header -->
+    <header>
+        
+        <div class="logo">
+            <img src="images/logo (2).png" alt="Pharmacy Logo">
+            <p>MediKart</p>
+        </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="doctors.html">Find Doctors</a></li>
+            <li><a href="#">Health Records</a></li>
+            <li><a href="#">Diabetes Care</a></li>
+            <li><a href="#">Health Insurance</a></li>
+        </ul>
+    </nav>
+    <div class="login-cart">
+        <a href="cart.html" style="text-decoration:none;">
+        <span class="cart-icon">🛒</span>
+        </a>
+        <button onclick="openModal('loginModal')">Login</button>
+    </div>
+</header>
+
+
+    <!-- 🔹 Hero Section -->
+    <section class="hero">
+        <h1>Explore Our Products</h1>
+        <input type="text" class="search-box" id="searchBox" placeholder="Search for a product..." onkeyup="filterProducts()">
+    </section>
+
+    <!-- 🔹 Products Grid -->
+    <div class="products-grid" id="productsContainer">
+        <div class="product-card" data-name="Paracetamol">
+            <img src="images/paracetamol.jpeg" alt="Paracetamol">
+            <h3>Paracetamol 500mg</h3>
+            <p class="price">$5.99</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-name="Ibuprofen">
+            <img src="images/ibuprofen.jpeg" alt="Ibuprofen">
+            <h3>Ibuprofen 200mg</h3>
+            <p class="price">$7.49</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-name="Vitamin C">
+            <img src="images/garnier vitamin C.webp" alt="Vitamin C">
+            <h3>Vitamin C 1000mg</h3>
+            <p class="price">$12.99</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-name="Aspirin">
+            <img src="images/aspirin.jpeg" alt="Aspirin">
+            <h3>Aspirin 81mg</h3>
+            <p class="price">$4.99</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+        <div class="product-card" data-name="Hand Sanitizer">
+            <img src="images/hand.jpeg" alt="Hand Sanitizer">
+            <h3>Hand Sanitizer 500ml</h3>
+            <p class="price">$9.99</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- 🔹 Footer -->
+    <footer>
+        <p>© 2025 MediKart. All rights reserved.</p>
+    </footer>
+
+    <!-- 🔹 JavaScript for Product Filtering -->
+    <script>
+        function filterProducts() {
+            let input = document.getElementById("searchBox").value.toLowerCase();
+            let products = document.getElementsByClassName("product-card");
+
+            for (let i = 0; i < products.length; i++) {
+                let product = products[i].getAttribute("data-name").toLowerCase();
+                products[i].style.display = product.includes(input) ? "block" : "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

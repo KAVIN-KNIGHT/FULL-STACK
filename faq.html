@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - MediKart</title>
+    <link rel="stylesheet" href="faq.css">
+</head>
+<body>
+
+    <header>
+        
+        <div class="logo">
+            <img src="images/logo (2).png" alt="Pharmacy Logo">
+            <p>MediKart</p>
+        </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="doctors.html">Find Doctors</a></li>
+            <li><a href="#">Health Records</a></li>
+            <li><a href="#">Diabetes Care</a></li>
+            <li><a href="#">Health Insurance</a></li>
+        </ul>
+    </nav>
+    <div class="login-cart">
+        <a href="cart.html" style="text-decoration:none;">
+        <span class="cart-icon">🛒</span>
+        </a>
+        <button onclick="openModal('loginModal')">Login</button>
+    </div>
+</header>
+
+
+<section class="faq-banner">
+    <h1>Frequently Asked Questions</h1>
+    <p>Find answers to commonly asked questions.</p>
+</section>
+
+<section class="faq-container">
+    <div class="faq-item">
+        <h2 onclick="toggleFAQ(this)">What is MediKart? <span class="arrow">▼</span></h2>
+        <div class="faq-content">
+            <p>MediKart is an online pharmacy that provides high-quality medicines, healthcare essentials, and medical consultations.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <h2 onclick="toggleFAQ(this)">How do I place an order? <span class="arrow">▼</span></h2>
+        <div class="faq-content">
+            <p>To place an order, browse products, add them to your cart, and proceed to checkout. You can pay using credit/debit cards, UPI, or net banking.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <h2 onclick="toggleFAQ(this)">What are the delivery charges? <span class="arrow">▼</span></h2>
+        <div class="faq-content">
+            <p>Delivery charges vary based on location. Free shipping is available for orders above ₹500.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <h2 onclick="toggleFAQ(this)">Can I return or exchange a product? <span class="arrow">▼</span></h2>
+        <div class="faq-content">
+            <p>Returns are accepted only for defective or incorrect products. Refer to our <a href="returns.html">Return Policy</a> for details.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <h2 onclick="toggleFAQ(this)">How can I contact customer support? <span class="arrow">▼</span></h2>
+        <div class="faq-content">
+            <p>You can contact us via email at <a href="mailto:support@medikart.com">support@medikart.com</a> or call our helpline at 1800-123-456.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 MediKart. All rights reserved.</p>
+</footer>
+
+<script>
+    // Toggle FAQ Answer
+function toggleFAQ(element) {
+    let content = element.nextElementSibling;
+    content.classList.toggle("show");
+
+    // Rotate arrow direction
+    let arrow = element.querySelector(".arrow");
+    if (content.classList.contains("show")) {
+        arrow.style.transform = "rotate(180deg)";
+    } else {
+        arrow.style.transform = "rotate(0deg)";
+    }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Doctors</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
+    <style>
+        /* Reset styles */
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+     /*background: linear-gradient(90deg, #8E897B, #F4C27A, #6FA29A);*/
+    text-align: center;
+    /* Dark Blue → Teal → Warm Gold */
+    background-attachment: fixed; /* Keeps background static */
+    background-size: cover;
+    color: black; /* Ensures text is readable */
+}
+.hero {
+   
+    text-align: center;
+    padding: 70px 20px;
+    color: rgb(8, 7, 7);
+}
+
+header {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:white;
+    /*background: linear-gradient(90deg, #8E897B, #F4C27A, #6FA29A);*/
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+}
+
+.logo img {
+    
+    height: 50px;
+}
+.logo {
+    display: flex;
+    align-items: center; /* Keeps text and logo aligned */
+    gap: 5%; /* Adds spacing between logo and text */
+}
+
+.logo p {
+    font-size: 20px; /* Adjust size as needed */
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+}
+.cart-icon {
+    font-size: 24px;  /* Adjust the size (Default: 16px) */
+    color: #004d40;   /* Change the color */
+    cursor: pointer;  /* Makes it clickable */
+    transition: transform 0.2s ease-in-out; /* Smooth effect */
+}
+
+.login-cart {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+button {
+    background-color: #004d40;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .login-cart {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+
+/* Page Title */
+.page-title {
+    font-size: 28px;
+    margin: 20px 0;
+}
+
+/* Specialties Grid */
+.specialties {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Specialty Card */
+.specialty-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease-in-out;
+    width: 180px;
+}
+
+.specialty-card:hover {
+    transform: scale(1.05);
+}
+
+.specialty-card img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+        opacity: 10; /* Makes images slightly transparent */
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .specialty-card img:hover {
+        opacity: 9; /* Fully visible on hover */
+    }
+.specialty-card p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        
+        <div class="logo">
+            <img src="images/logo (2).png" alt="Pharmacy Logo">
+            <p>MediKart</p>
+        </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="doctors.html">Find Doctors</a></li>
+            <li><a href="#">Health Records</a></li>
+            <li><a href="#">Diabetes Care</a></li>
+            <li><a href="#">Health Insurance</a></li>
+        </ul>
+    </nav>
+    <div class="login-cart">
+        <a href="cart.html" style="text-decoration:none;">
+        <span class="cart-icon">🛒</span>
+        </a>
+        <button onclick="openModal('loginModal')">Login</button>
+    </div>
+</header>
+    <section class="hero">
+        <h1 style="font-size:30px">Browse by Specialties</h1>
+        <input type="text" placeholder="Search Doctors">
+    </section>
+
+
+    
+    <div class="specialties">
+        <div class="specialty-card" style="background: linear-gradient(to right, #fff7fa, #fdeef2);">
+            <img src="images/general-physician.png" alt="General Physician">
+            <p>General Physician</p>
+        </div>
+    
+        <div class="specialty-card" style="background: linear-gradient(to right, #fefaf7, #fceee5);">
+            <img src="images/dermatology.png" alt="Dermatology">
+            <p>Dermatology</p>
+        </div>
+    
+        <div class="specialty-card" style="background: linear-gradient(to right, #fff8f5, #ffebe0);">
+            <img src="images/orthopaedics.jpeg" alt="Orthopaedics">
+            <p>Orthopaedics</p>
+        </div>
+    
+        <div class="specialty-card" style="background: linear-gradient(to right, #faf7ff, #f1eaff);">
+            <img src="images/ent.png" alt="ENT">
+            <p>ENT</p>
+        </div>
+    
+        <div class="specialty-card" style="background: linear-gradient(to right, #f7fff9, #eafff1);">
+            <img src="images/neurology.png" alt="Neurology">
+            <p>Neurology</p>
+        </div>
+    
+        <div class="specialty-card" style="background: linear-gradient(to right, #f8fbff, #e9f3ff);">
+            <img src="images/cardiology.png" alt="Cardiology">
+            <p>Cardiology</p>
+        </div>
+    
+        <div class="specialty-card" style="background: linear-gradient(to right, #f6fffc, #eafff6);">
+            <img src="images/stomach.png" alt="Gastroenterology">
+            <p>Gastroenterology</p>
+        </div>
+    
+        <div class="specialty-card" style="background: linear-gradient(to right, #fff8fa, #ffeff4);">
+            <img src="images/psycology.jpeg" alt="Psychiatry">
+            <p>Psychiatry</p>
+        </div>
+    
+        <div class="specialty-card" style="background: linear-gradient(to right, #fafff7, #efffe9);">
+            <img src="images/pediatrics.png" alt="Paediatrics">
+            <p>Paediatrics</p>
+        </div>
+    
+        <div class="specialty-card" style="background: linear-gradient(to right, #fff6ff, #f9eaff);">
+            <img src="images/endochrinology.png" alt="Endocrinology">
+            <p>Endocrinology</p>
+        </div>
+    </div>
+    
+</body>
+</html>

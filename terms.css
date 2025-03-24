@@ -1,0 +1,190 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: white;
+    color: black;
+}
+
+/* Header */
+header {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:white;
+    /*background: linear-gradient(90deg, #8E897B, #F4C27A, #6FA29A);*/
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+}
+
+.logo img {
+    
+    height: 50px;
+}
+.logo {
+    display: flex;
+    align-items: center; /* Keeps text and logo aligned */
+    gap: 5%; /* Adds spacing between logo and text */
+}
+
+.logo p {
+    font-size: 20px; /* Adjust size as needed */
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+}
+.cart-icon {
+    font-size: 24px;  /* Adjust the size (Default: 16px) */
+    color: #004d40;   /* Change the color */
+    cursor: pointer;  /* Makes it clickable */
+    transition: transform 0.2s ease-in-out; /* Smooth effect */
+}
+
+.login-cart {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+button {
+    background-color: #004d40;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Terms Banner */
+.terms-banner {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(to right, #e6f7fa, #f0f8ff);
+    color: #004d40;
+    margin-top: 80px; /* Adjust for fixed header */
+}
+
+.terms-banner h1 {
+    font-size: 36px;
+}
+
+.terms-banner p {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+/* Terms Wrapper */
+.terms-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 60px 20px;
+}
+
+/* Terms Content */
+.terms-container {
+    max-width: 900px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.terms-container h2 {
+    font-size: 28px;
+    color: #004d40;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.terms-container h3 {
+    font-size: 22px;
+    color: #00796b;
+    margin-top: 25px;
+}
+
+.terms-container p, .terms-container ul {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.terms-container ul {
+    padding-left: 20px;
+}
+
+.terms-container a {
+    color: #00796b;
+    text-decoration: underline;
+}
+
+.terms-container a:hover {
+    color: #00564d;
+}
+
+/* Footer */
+footer {
+    background: #f8f7f5;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .terms-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .terms-container h2 {
+        font-size: 26px;
+    }
+
+    .terms-container h3 {
+        font-size: 20px;
+    }
+
+    .terms-container p, .terms-container ul {
+        font-size: 16px;
+    }
+}

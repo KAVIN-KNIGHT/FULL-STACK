@@ -1,0 +1,482 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    /*background: linear-gradient(90deg, #8E897B, #F4C27A, #6FA29A);*/
+    background:white;
+    /* Dark Blue → Teal → Warm Gold */
+    background-attachment: fixed; /* Keeps background static */
+    background-size: cover;
+    color: black; /* Ensures text is readable */
+}
+
+
+header {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:white;
+    /*background: linear-gradient(90deg, #8E897B, #F4C27A, #6FA29A);*/
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+}
+
+.logo img {
+    
+    height: 50px;
+}
+.logo {
+    display: flex;
+    align-items: center; /* Keeps text and logo aligned */
+    gap: 5%; /* Adds spacing between logo and text */
+}
+
+.logo p {
+    font-size: 20px; /* Adjust size as needed */
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+}
+.cart-icon {
+    font-size: 24px;  /* Adjust the size (Default: 16px) */
+    color: #004d40;   /* Change the color */
+    cursor: pointer;  /* Makes it clickable */
+    transition: transform 0.2s ease-in-out; /* Smooth effect */
+}
+
+.login-cart {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+button {
+    background-color: #004d40;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hero {
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), 
+                url('images/bg 2.jpg') center/cover no-repeat;
+    text-align: center;
+    padding: 70px 20px;
+    color: rgb(8, 7, 7);
+    margin-top: 80px;
+}
+
+
+.hero input {
+    width: 80%;
+    max-width: 500px;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: none;
+}
+
+.services {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background: #ffffff;
+    padding: 25px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    width: 180px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+.health-categories {
+    text-align: center;
+    padding: 20px;
+}
+/* 🔹 General Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* 🔹 Modal Content Styling */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px);
+    animation: slideDown 0.5s ease-in-out;
+}
+
+/* 🔹 Close Button */
+.close {
+    cursor: pointer;
+    font-size: 24px;
+    float: right;
+    color: red;
+    transition: transform 0.2s ease-in-out;
+}
+
+.close:hover {
+    transform: rotate(90deg);
+}
+
+/* 🔹 Input Fields */
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🔹 Input Focus Effect */
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    transform: scale(1.02);
+}
+
+/* 🔹 Submit Buttons */
+button {
+    background:  #004d40;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🔹 Button Hover */
+button:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+/* 🔹 Keyframe Animations */
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 🔹 Apply Animation when Modal is Opened */
+.modal.show {
+    display: flex;
+    opacity: 1;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.category-card {
+    background: #ffffff;
+    padding: 17px;
+    width: 150px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.category-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-card, .category-card {
+        flex: 1 1 45%; /* Two cards per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .service-card, .category-card {
+        flex: 1 1 100%; /* One card per row on very small screens */
+    }
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    width: 350px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+    color: red;
+    line-height: 1;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    background-color: #004d40;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+    background-color: #006d5b;
+}
+
+.modal-content a {
+    color: #004d40;
+    text-decoration: none;
+}
+
+.modal-content a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Why Choose Us Section Styling */
+/* Why Choose Us Section Styling */
+.why-choose-us {
+    background-color: #e6f7fa; /* Light cyan background */
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.why-choose-us h2 {
+    font-size: 30px;
+    color: #006d5b; /* Dark teal color for the heading */
+    margin-bottom: 30px;
+}
+
+.reasons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.reason-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Toggle effect */
+}
+
+.reason-card:hover {
+    transform: scale(1.05); /* Slight enlargement on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.reason-image {
+    width: 100px; /* Fixed width for the image container */
+    height: 100px; /* Fixed height for the image container */
+    margin: 0 auto 15px; /* Center the image and add spacing below */
+    overflow: hidden;
+}
+
+.reason-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the image fits without cropping */
+}
+
+.reason-card h3 {
+    font-size: 20px;
+    color: #006d5b; /* Dark teal color for the card headings */
+    margin-bottom: 10px;
+}
+
+.reason-card p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .reason-card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+footer {
+    background: linear-gradient(90deg, #F8F7F5, #FAEEDC, #EEF6F5);; /* Light teal background */
+    padding: 40px 10%;
+    text-align: center;
+}
+
+/* Flexbox Layout for Footer Content */
+.footer-content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Styling Each Footer Section */
+.footer-section {
+    background: linear-gradient(90deg, #F8F7F5, #FAEEDC, #EEF6F5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    width: 300px; /* Set equal width */
+    text-align: center;
+}
+
+/* Styling Footer Links */
+.footer-links,
+.social-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li,
+.social-links li {
+    margin-bottom: 8px;
+}
+
+/* Footer Links */
+.footer-links a,
+.social-links a {
+    text-decoration: none;
+    color: #006d5b; /* Dark teal */
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover,
+.social-links a:hover {
+    text-decoration: underline;
+    color: #1b998b; /* Brighter teal */
+}
+
+/* Contact Info */
+.footer-section p a {
+    color: #006d5b;
+    text-decoration: none;
+}
+
+.footer-section p a:hover {
+    text-decoration: underline;
+    color: #1b998b;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #006d5b;
+}
+
+/* Responsive Design: Stack Sections on Smaller Screens */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+}

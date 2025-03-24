@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - MediKart</title>
+    <link rel="stylesheet" href="contactus.css">
+    <script>
+        // Open Form Popup
+function openForm() {
+    document.getElementById("contactFormPopup").style.display = "flex";
+}
+
+// Close Form Popup
+function closeForm() {
+    document.getElementById("contactFormPopup").style.display = "none";
+}
+
+// Form Validation
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let message = document.getElementById("message").value.trim();
+
+    if (name === "" || email === "" || message === "") {
+        alert("All fields are required!");
+        return;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(email)) {
+        alert("Enter a valid email address.");
+        return;
+    }
+
+    alert("Message sent successfully!");
+    closeForm();
+});
+
+    </script>
+</head>
+<body>
+
+    <header>
+        
+        <div class="logo">
+            <img src="images/logo (2).png" alt="Pharmacy Logo">
+            <p>MediKart</p>
+        </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="doctors.html">Find Doctors</a></li>
+            <li><a href="aboutus.html">About us</a></li>
+            <li><a href="#">Health Records</a></li>
+            <li><a href="#">Diabetes Care</a></li>
+            <li><a href="#">Health Insurance</a></li>
+        </ul>
+    </nav>
+    <div class="login-cart">
+        <a href="cart.html" style="text-decoration:none;">
+        <span class="cart-icon">🛒</span>
+        </a>
+        <button onclick="openModal('loginModal')">Login</button>
+    </div>
+</header>
+
+<section class="contact-wrapper">
+    <div class="contact-container">
+        <!-- Left Side: Contact Us Button -->
+        <div class="contact-button-section">
+            <h2>Need Help?</h2>
+            <p>Click below to get in touch with us.</p>
+            <button class="open-form-btn" onclick="openForm()">Contact Us</button>
+        </div>
+
+        <!-- Right Side: Background Image -->
+        <div class="contact-image-section"></div>
+    </div>
+</section>
+
+<!-- Pop-up Contact Form -->
+<div id="contactFormPopup" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeForm()">&times;</span>
+        <h2>Contact Us</h2>
+        <p>Fill out the form, and we'll respond shortly.</p>
+        <form id="contactForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" placeholder="Write your message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<footer class="fade-in">
+    <p style="text-align:center" class="footer-bottom">© 2025 MediKart. All rights reserved.</p>
+</footer>
+
+
+</body>
+</html>
