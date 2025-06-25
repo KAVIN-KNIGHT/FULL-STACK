@@ -5,17 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - MediKart</title>
     <link rel="stylesheet" href="privacypolicy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   
 </head>
 <body>
 
-    <header>
-        
-        <div class="logo">
+<header>
+    <div class="logo">
+        <a href="index.html">
             <img src="images/logo (2).png" alt="Pharmacy Logo">
             <p>MediKart</p>
-        </div>
+        </a>
+    </div>
+    
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    
     <nav>
-        <ul>
+        <ul id="nav-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="doctors.html">Find Doctors</a></li>
@@ -24,9 +30,10 @@
             <li><a href="#">Health Insurance</a></li>
         </ul>
     </nav>
+
     <div class="login-cart">
         <a href="cart.html" style="text-decoration:none;">
-        <span class="cart-icon">🛒</span>
+            <span class="cart-icon">🛒</span>
         </a>
         <button onclick="openModal('loginModal')">Login</button>
     </div>
@@ -71,8 +78,90 @@
 </section>
 
 <footer>
-    <p>© 2025 MediKart. All rights reserved.</p>
-</footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo (2).png" alt="MediKart Logo">
+                        <p>MediKart</p>
+                    </div>
+                    <p class="footer-description">Your trusted online pharmacy for quality medicines and healthcare products.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
 
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms and Conditions</a></li>
+                        <li><a href="return.html">Return and Refund</a></li>
+                    </ul>
+                </div>
+
+                <!-- Health Categories -->
+                <div class="footer-column">
+                    <h3>Health Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-tint"></i> Diabetes Care</a></li>
+                        <li><a href="#"><i class="fas fa-heart"></i> Cardiac Care</a></li>
+                        <li><a href="#"><i class="fas fa-stethoscope"></i> Stomach Care</a></li>
+                        <li><a href="#"><i class="fas fa-pills"></i> Pain Relief</a></li>
+                        <li><a href="#"><i class="fas fa-tooth"></i> Oral Care</a></li>
+                        <li><a href="#"><i class="fas fa-brain"></i> Brain Health</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:rkavin975rk@gmail.com">rkavin975rk@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+916374337696">6374337696</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>123 Health Street, Wellness City</p>
+                        </div>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Subscribe to Newsletter</h4>
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2023 MediKart. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-amazon-pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script>
+    function toggleMenu() {
+    let menu = document.getElementById("nav-menu");
+    menu.classList.toggle("active");
+}
+
+</script>
 </body>
 </html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <link rel="stylesheet" href="checkout.css"> <!-- Link to external CSS -->
+    <title>Checkout</title>
+    <style>
+
+    </style>
+</head>
+<body>
+     <header>
+        <div class="logo">
+            <img src="images/logo (2).png" alt="Pharmacy Logo">
+            <p>MediKart</p>
+        </div>
+        <div class="menu-icon">☰</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="doctors.html">Find Doctors</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="#">Health Records</a></li>
+                <li><a href="#">Diabetes Care</a></li>
+                <li><a href="#">Health Insurance</a></li>
+            </ul>
+        </nav>
+        <div class="login-cart">
+            <a href="cart.html" style="text-decoration:none;">
+                <span class="cart-icon">🛒</span>
+            </a>
+            <button onclick="openModal('loginModal')">Login</button>
+        </div>
+    </header>
+    
+    <div class="checkout-container">
+        <div class="checkout-steps">
+            <div class="step active">1. Shipping</div>
+            <div class="step">2. Payment</div>
+            <div class="step">3. Confirmation</div>
+        </div>
+
+        <div class="checkout-content">
+            <div class="shipping-form">
+                <h2>Shipping Information</h2>
+                <form id="checkoutForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Shipping Address</label>
+                        <textarea id="address" name="address" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" id="state" name="state" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="zip">ZIP Code</label>
+                            <input type="text" id="zip" name="zip" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="instructions">Delivery Instructions (Optional)</label>
+                        <textarea id="instructions" name="instructions" rows="2"></textarea>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <div id="order-items">
+                    <!-- Items will be populated from cart -->
+                </div>
+                
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="order-subtotal">₹0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>Free</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax</span>
+                    <span id="order-tax">₹0.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="order-total">₹0.00</span>
+                </div>
+                
+                <div class="payment-method">
+                    <h3>Payment Method</h3>
+                    <div class="payment-options">
+                        <label>
+                            <input type="radio" name="payment" value="credit" checked>
+                            <i class="fab fa-cc-visa"></i> Credit/Debit Card
+                        </label>
+                        <label>
+                            <input type="radio" name="payment" value="paypal">
+                            <i class="fab fa-cc-paypal"></i> PayPal
+                        </label>
+                        <label>
+                            <input type="radio" name="payment" value="cod">
+                            <i class="fas fa-money-bill-wave"></i> Cash on Delivery
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="button" class="place-order-btn" id="place-order-btn">Place Order</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo (2).png" alt="MediKart Logo">
+                        <p>MediKart</p>
+                    </div>
+                    <p class="footer-description">Your trusted online pharmacy for quality medicines and healthcare products.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms and Conditions</a></li>
+                        <li><a href="return.html">Return and Refund</a></li>
+                    </ul>
+                </div>
+
+                <!-- Health Categories -->
+                <div class="footer-column">
+                    <h3>Health Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-tint"></i> Diabetes Care</a></li>
+                        <li><a href="#"><i class="fas fa-heart"></i> Cardiac Care</a></li>
+                        <li><a href="#"><i class="fas fa-stethoscope"></i> Stomach Care</a></li>
+                        <li><a href="#"><i class="fas fa-pills"></i> Pain Relief</a></li>
+                        <li><a href="#"><i class="fas fa-tooth"></i> Oral Care</a></li>
+                        <li><a href="#"><i class="fas fa-brain"></i> Brain Health</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:rkavin975rk@gmail.com">rkavin975rk@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+916374337696">6374337696</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>123 Health Street, Wellness City</p>
+                        </div>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Subscribe to Newsletter</h4>
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2023 MediKart. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-amazon-pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
+<script>
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const orderItems = document.getElementById('order-items');
+    const orderSubtotal = document.getElementById('order-subtotal');
+    const orderTax = document.getElementById('order-tax');
+    const orderTotal = document.getElementById('order-total');
+    const placeOrderBtn = document.getElementById('place-order-btn');
+
+    document.addEventListener('DOMContentLoaded', function() {
+        updateOrderSummary();
+        updateCartCount();
+
+        const menuIcon = document.querySelector(".menu-icon");
+        const navMenu = document.querySelector("nav ul");
+
+        menuIcon.addEventListener("click", function() {
+            navMenu.classList.toggle("active");
+            this.innerHTML = navMenu.classList.contains("active") ? "✕" : "☰";
+        });
+
+        placeOrderBtn.addEventListener('click', function() {
+            if (validateForm()) {
+                localStorage.removeItem('cartItems');
+                window.location.href = 'order-confirmation.html';
+            }
+        });
+    });
+
+    function updateOrderSummary() {
+        if (cartItems.length === 0) {
+            window.location.href = 'cart.html';
+            return;
+        }
+
+        let itemsHTML = '';
+        let subtotal = 0;
+
+        cartItems.forEach(item => {
+            subtotal += item.price * item.quantity;
+
+            itemsHTML += `
+                <div class="order-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="item-details">
+                        <h4>${item.name}</h4>
+                        <div>₹${item.price.toFixed(2)} × ${item.quantity}</div>
+                    </div>
+                    <div class="item-total">₹${(item.price * item.quantity).toFixed(2)}</div>
+                </div>
+            `;
+        });
+
+        orderItems.innerHTML = itemsHTML;
+
+        const tax = subtotal * 0.1;
+        const total = subtotal + tax;
+
+        orderSubtotal.textContent = `₹${subtotal.toFixed(2)}`;
+        orderTax.textContent = `₹${tax.toFixed(2)}`;
+        orderTotal.textContent = `₹${total.toFixed(2)}`;
+    }
+
+    function validateForm() {
+        const form = document.getElementById('checkoutForm');
+        const inputs = form.querySelectorAll('input[required], textarea[required]');
+        let isValid = true;
+
+        form.querySelectorAll('.error-message').forEach(el => el.remove());
+
+        inputs.forEach(input => {
+            input.style.borderColor = '';
+            const errorMsg = document.createElement('div');
+            errorMsg.classList.add('error-message');
+
+            if (!input.value.trim()) {
+                isValid = false;
+                input.style.borderColor = 'red';
+                errorMsg.textContent = `${input.previousElementSibling.textContent} is required`;
+                input.parentNode.appendChild(errorMsg);
+            }
+        });
+
+        if (!isValid) {
+            alert('Please correct the highlighted fields!');
+            return false;
+        }
+
+        return true;
+    }
+
+    function updateCartCount() {
+        const count = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+        const countEl = document.querySelector('.cart-count');
+        if (countEl) {
+            countEl.textContent = count;
+            countEl.style.display = count > 0 ? 'flex' : 'none';
+        }
+    }
+</script>

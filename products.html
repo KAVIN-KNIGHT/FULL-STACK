@@ -4,277 +4,686 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - MediKart</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* 🔹 General Styling */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
-            text-align: center;
-            color: black;
-        }
-
-        /* 🔹 Header */
-        header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    padding: 15px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-.logo img {
-    
-    height: 50px;
-}
-.logo {
-    display: flex;
-    align-items: center; /* Keeps text and logo aligned */
-    gap: 5%; /* Adds spacing between logo and text */
-}
-
-.logo p {
-    font-size: 20px; /* Adjust size as needed */
-    font-weight: bold;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color:black;
-    font-weight: bold;
-}
-.cart-icon {
-    font-size: 24px;  /* Adjust the size (Default: 16px) */
-    color: #004d40;   /* Change the color */
-    cursor: pointer;  /* Makes it clickable */
-    transition: transform 0.2s ease-in-out; /* Smooth effect */
-}
-
-.login-cart {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-button {
-    background-color: #004d40;
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-        /* 🔹 Hero Section */
-        .hero {
-            text-align: center;
-            padding: 50px;
-        }
-
-        .hero h1 {
-            font-size: 36px;
-            color: #004d40;
-        }
-
-        /* 🔹 Search Box */
-        .search-box {
-            width: 60%;
-            padding: 12px;
-            border-radius: 30px;
-            border: 2px solid #004d40;
-            font-size: 16px;
-            transition: all 0.3s ease-in-out;
-            outline: none;
-        }
-
-        .search-box:focus {
-            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-            transform: scale(1.05);
-        }
-
-        /* 🔹 Products Grid */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        /* 🔹 Product Cards */
-        .product-card {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 150px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-
-        .product-card h3 {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-
-        .product-card .price {
-            font-size: 16px;
-            color: #2ecc71;
-            margin-bottom: 10px;
-        }
-
-        .add-to-cart {
-            background-color: #004d40;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .add-to-cart:hover {
-            background-color: #00796b;
-        }
-
-        /* 🔹 Responsive Design */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="products.css">
 </head>
 <body>
-
-    <!-- 🔹 Header -->
     <header>
-        
         <div class="logo">
-            <img src="images/logo (2).png" alt="Pharmacy Logo">
-            <p>MediKart</p>
+            <a href="index.html">
+                <img src="images/logo (2).png" alt="Pharmacy Logo">
+                <p>MediKart</p>
+            </a>
         </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="doctors.html">Find Doctors</a></li>
-            <li><a href="#">Health Records</a></li>
-            <li><a href="#">Diabetes Care</a></li>
-            <li><a href="#">Health Insurance</a></li>
-        </ul>
-    </nav>
-    <div class="login-cart">
-        <a href="cart.html" style="text-decoration:none;">
-        <span class="cart-icon">🛒</span>
-        </a>
-        <button onclick="openModal('loginModal')">Login</button>
-    </div>
-</header>
 
+        <div class="menu-icon" id="menuToggle">☰</div>
 
-    <!-- 🔹 Hero Section -->
+        <nav>
+            <ul id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="doctors.html">Find Doctors</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="#">Health Records</a></li>
+                <li><a href="#">Diabetes Care</a></li>
+                <li><a href="#">Health Insurance</a></li>
+            </ul>
+        </nav>
+
+        <div class="login-cart">
+            <a href="cart.html" style="text-decoration:none;">
+                <span class="cart-icon">🛒<span class="cart-count">0</span></span>
+            </a>
+            <button  style="color:white"; onclick="openModal('loginModal')">Login</button>
+        </div>
+    </header>
+
     <section class="hero">
-        <h1>Explore Our Products</h1>
-        <input type="text" class="search-box" id="searchBox" placeholder="Search for a product..." onkeyup="filterProducts()">
+        <h1 class="animate__animated animate__fadeInDown">Explore Our Products</h1>
+        <div class="search-container animate__animated animate__fadeInUp">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="search-box" id="searchBox" placeholder="Search for medicines, health products..." onkeyup="filterProducts()">
+        </div>
     </section>
 
-    <!-- 🔹 Products Grid -->
-    <div class="products-grid" id="productsContainer">
-        <div class="product-card" data-name="Paracetamol">
-            <img src="images/paracetamol.jpeg" alt="Paracetamol">
-            <h3>Paracetamol 500mg</h3>
-            <p class="price">$5.99</p>
-            <button class="add-to-cart">Add to Cart</button>
+    <div class="products-container">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <div class="filter-group">
+                <h3>Categories</h3>
+                <div class="filter-options">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="pain-relief">Pain Relief</button>
+                    <button class="filter-btn" data-category="vitamins">Vitamins</button>
+                    <button class="filter-btn" data-category="first-aid">First Aid</button>
+                </div>
+            </div>
+            <div class="filter-group">
+                <h3>Price Range</h3>
+                <div class="filter-options">
+                    <button class="filter-btn" data-price="all">All</button>
+                    <button class="filter-btn" data-price="under500">Under ₹500</button>
+                    <button class="filter-btn" data-price="500-1000">₹500-₹1000</button>
+                    <button class="filter-btn" data-price="over1000">Over ₹1000</button>
+                </div>
+            </div>
         </div>
 
-        <div class="product-card" data-name="Ibuprofen">
-            <img src="images/ibuprofen.jpeg" alt="Ibuprofen">
-            <h3>Ibuprofen 200mg</h3>
-            <p class="price">$7.49</p>
-            <button class="add-to-cart">Add to Cart</button>
-        </div>
+        <!-- Products Grid -->
+        <div class="products-grid" id="productsContainer">
+            <!-- Product 1 -->
+            <div class="product-card" data-name="Paracetamol" data-category="pain-relief" data-price="249">
+                <div class="product-image">
+                    <img src="images/p650.jpeg" alt="Paracetamol">
+                    <span class="product-badge">-15%</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Paracetamol 500mg</h3>
+                    <div class="product-price">
+                        <span class="current-price">₹249</span>
+                        <span class="original-price">₹299</span>
+                        <span class="discount">15% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-        <div class="product-card" data-name="Vitamin C">
-            <img src="images/garnier vitamin C.webp" alt="Vitamin C">
-            <h3>Vitamin C 1000mg</h3>
-            <p class="price">$12.99</p>
-            <button class="add-to-cart">Add to Cart</button>
-        </div>
+            <!-- Product 2 -->
+            <div class="product-card" data-name="Ibuprofen" data-category="pain-relief" data-price="349">
+                <div class="product-image">
+                    <img src="images/ibuprofen.jpeg" alt="Ibuprofen">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Ibuprofen 200mg</h3>
+                    <div class="product-price">
+                        <span class="current-price">₹349</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-        <div class="product-card" data-name="Aspirin">
-            <img src="images/aspirin.jpeg" alt="Aspirin">
-            <h3>Aspirin 81mg</h3>
-            <p class="price">$4.99</p>
-            <button class="add-to-cart">Add to Cart</button>
-        </div>
+            <!-- Product 3 -->
+            <div class="product-card" data-name="Vitamin C" data-category="vitamins" data-price="599">
+                <div class="product-image">
+                    <img src="images/garnier vitamin C.webp" alt="Vitamin C">
+                    <span class="product-badge">BESTSELLER</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Vitamin C 1000mg</h3>
+                    <div class="product-price">
+                        <span class="current-price">₹599</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-        <div class="product-card" data-name="Hand Sanitizer">
-            <img src="images/hand.jpeg" alt="Hand Sanitizer">
-            <h3>Hand Sanitizer 500ml</h3>
-            <p class="price">$9.99</p>
-            <button class="add-to-cart">Add to Cart</button>
+            <!-- Product 4 -->
+            <div class="product-card" data-name="Aspirin" data-category="pain-relief" data-price="199">
+                <div class="product-image">
+                    <img src="images/aspirin.jpeg" alt="Aspirin">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Aspirin 81mg</h3>
+                    <div class="product-price">
+                        <span class="current-price">₹199</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card" data-name="Hand Sanitizer" data-category="first-aid" data-price="399">
+                <div class="product-image">
+                    <img src="images/hand.jpeg" alt="Hand Sanitizer">
+                    <span class="product-badge">NEW</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Hand Sanitizer 500ml</h3>
+                    <div class="product-price">
+                        <span class="current-price">₹399</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card" data-name="Multivitamin" data-category="vitamins" data-price="899">
+                <div class="product-image">
+                    <img src="images/cough syrup.jpeg" alt="Multivitamin">
+                    <span class="product-badge">-20%</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Daily Multivitamin</h3>
+                    <div class="product-price">
+                        <span class="current-price">₹899</span>
+                        <span class="original-price">₹1,099</span>
+                        <span class="discount">20% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card" data-name="Bandages" data-category="first-aid" data-price="299">
+                <div class="product-image">
+                    <img src="images/bandages.jpeg" alt="Bandages">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Adhesive Bandages</h3>
+                    <div class="product-price">
+                        <span class="current-price">₹299</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card" data-name="Vitamin D" data-category="vitamins" data-price="499">
+                <div class="product-image">
+                    <img src="images/antacid.jpeg" alt="Vitamin D">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Vitamin D3 2000IU</h3>
+                    <div class="product-price">
+                        <span class="current-price">₹499</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="add-to-cart" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- 🔹 Footer -->
     <footer>
-        <p>© 2025 MediKart. All rights reserved.</p>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo (2).png" alt="MediKart Logo">
+                        <p>MediKart</p>
+                    </div>
+                    <p class="footer-description">Your trusted online pharmacy for quality medicines and healthcare products.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms and Conditions</a></li>
+                        <li><a href="return.html">Return and Refund</a></li>
+                    </ul>
+                </div>
+
+                <!-- Health Categories -->
+                <div class="footer-column">
+                    <h3>Health Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-tint"></i> Diabetes Care</a></li>
+                        <li><a href="#"><i class="fas fa-heart"></i> Cardiac Care</a></li>
+                        <li><a href="#"><i class="fas fa-stethoscope"></i> Stomach Care</a></li>
+                        <li><a href="#"><i class="fas fa-pills"></i> Pain Relief</a></li>
+                        <li><a href="#"><i class="fas fa-tooth"></i> Oral Care</a></li>
+                        <li><a href="#"><i class="fas fa-brain"></i> Brain Health</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:rkavin975rk@gmail.com">rkavin975rk@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+916374337696">6374337696</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>123 Health Street, Wellness City</p>
+                        </div>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Subscribe to Newsletter</h4>
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2023 MediKart. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-amazon-pay"></i>
+                </div>
+            </div>
+        </div>
     </footer>
-
-    <!-- 🔹 JavaScript for Product Filtering -->
+    
+    <!-- Product Quick View Modal -->
+    <div id="quickViewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('quickViewModal')">&times;</span>
+            <div class="quick-view-content" id="quickViewContent">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+    
     <script>
-        function filterProducts() {
-            let input = document.getElementById("searchBox").value.toLowerCase();
-            let products = document.getElementsByClassName("product-card");
+        // ====== DOM Elements ======
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+const searchBox = document.getElementById('searchBox');
+const productsContainer = document.getElementById('productsContainer');
+const filterButtons = document.querySelectorAll('.filter-btn');
+const cartCount = document.querySelector('.cart-count');
 
-            for (let i = 0; i < products.length; i++) {
-                let product = products[i].getAttribute("data-name").toLowerCase();
-                products[i].style.display = product.includes(input) ? "block" : "none";
+// ====== Global Variables ======
+let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+let wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+
+// ====== Initialize Page ======
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    initializeWishlist();
+    setupEventListeners();
+    animateElements();
+});
+
+// ====== Mobile Menu Toggle ======
+function setupEventListeners() {
+    menuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        this.classList.toggle('active');
+        this.innerHTML = navMenu.classList.contains('active') ? '✕' : '☰';
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('#navMenu a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                navMenu.classList.remove('active');
+                menuToggle.innerHTML = '☰';
             }
-        }
-    </script>
+        });
+    });
+    
+    // Filter products by category
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            const category = this.dataset.category;
+            const priceRange = this.dataset.price;
+            
+            filterProducts(category, priceRange);
+        });
+    });
+    
+    // Initialize modals
+    initModals();
+}
 
+// ====== Product Filtering ======
+function filterProducts(category = 'all', priceRange = 'all') {
+    const products = document.querySelectorAll('.product-card');
+    const searchTerm = searchBox.value.toLowerCase();
+    
+    products.forEach(product => {
+        const productName = product.dataset.name.toLowerCase();
+        const productCategory = product.dataset.category;
+        const productPrice = parseFloat(product.dataset.price);
+        
+        // Check search term
+        const matchesSearch = productName.includes(searchTerm);
+        
+        // Check category
+        const matchesCategory = category === 'all' || productCategory === category;
+        
+        // Check price range
+        let matchesPrice = true;
+        if (priceRange === 'under500') {
+            matchesPrice = productPrice < 500;
+        } else if (priceRange === '500-1000') {
+            matchesPrice = productPrice >= 500 && productPrice <= 1000;
+        } else if (priceRange === 'over1000') {
+            matchesPrice = productPrice > 1000;
+        }
+        
+        // Show/hide based on filters
+        if (matchesSearch && matchesCategory && matchesPrice) {
+            product.style.display = 'block';
+            product.classList.add('animate__animated', 'animate__fadeIn');
+        } else {
+            product.style.display = 'none';
+            product.classList.remove('animate__animated', 'animate__fadeIn');
+        }
+    });
+}
+
+// Real-time search filtering
+searchBox.addEventListener('input', function() {
+    filterProducts();
+});
+
+// ====== Shopping Cart Functionality ======
+function addToCart(button) {
+    const productCard = button.closest('.product-card');
+    const productId = productCard.dataset.name;
+    const productName = productCard.querySelector('.product-title').textContent;
+    const productPrice = parseFloat(productCard.dataset.price);
+    const productImage = productCard.querySelector('img').src;
+    
+    // Check if item already in cart
+    const existingItem = cartItems.find(item => item.id === productId);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cartItems.push({
+            id: productId,
+            name: productName,
+            price: productPrice,
+            image: productImage,
+            quantity: 1
+        });
+    }
+    
+    // Update localStorage and UI
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    updateCartCount();
+    
+    // Show added animation
+    button.innerHTML = '<i class="fas fa-check"></i> Added';
+    button.style.backgroundColor = '#2ecc71';
+    
+    setTimeout(() => {
+        button.innerHTML = '<i class="fas fa-shopping-cart"></i> Add to Cart';
+        button.style.backgroundColor = '';
+    }, 1500);
+    
+    // Pulse cart icon
+    const cartIcon = document.querySelector('.cart-icon');
+    cartIcon.classList.add('animate__animated', 'animate__pulse');
+    setTimeout(() => {
+        cartIcon.classList.remove('animate__animated', 'animate__pulse');
+    }, 1000);
+}
+
+function updateCartCount() {
+    const count = cartItems.reduce((total, item) => total + item.quantity, 0);
+    cartCount.textContent = count;
+    cartCount.style.display = count > 0 ? 'flex' : 'none';
+}
+
+// ====== Wishlist Functionality ======
+function initializeWishlist() {
+    document.querySelectorAll('.product-card').forEach(card => {
+        const productId = card.dataset.name;
+        const wishlistBtn = card.querySelector('.wishlist-btn');
+        
+        if (wishlistItems.includes(productId)) {
+            wishlistBtn.innerHTML = '<i class="fas fa-heart"></i>';
+            wishlistBtn.style.color = '#ff6b6b';
+        }
+    });
+}
+
+function toggleWishlist(button) {
+    const productCard = button.closest('.product-card');
+    const productId = productCard.dataset.name;
+    
+    if (wishlistItems.includes(productId)) {
+        // Remove from wishlist
+        wishlistItems = wishlistItems.filter(id => id !== productId);
+        button.innerHTML = '<i class="far fa-heart"></i>';
+        button.style.color = '';
+    } else {
+        // Add to wishlist
+        wishlistItems.push(productId);
+        button.innerHTML = '<i class="fas fa-heart"></i>';
+        button.style.color = '#ff6b6b';
+        
+        // Heart animation
+        button.classList.add('animate__animated', 'animate__pulse');
+        setTimeout(() => {
+            button.classList.remove('animate__animated', 'animate__pulse');
+        }, 1000);
+    }
+    
+    localStorage.setItem('wishlistItems', JSON.stringify(wishlistItems));
+}
+
+// ====== Modal Functions ======
+function initModals() {
+    // Quick view modal for products
+    document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            // Don't open if clicking on buttons
+            if (!e.target.closest('.add-to-cart') && !e.target.closest('.wishlist-btn')) {
+                openQuickView(this);
+            }
+        });
+    });
+    
+    // Login/Register form handling
+    document.getElementById('loginForm')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        handleLogin();
+    });
+    
+    document.getElementById('registerForm')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        handleRegistration();
+    });
+}
+
+function openQuickView(productCard) {
+    const productId = productCard.dataset.name;
+    const productName = productCard.querySelector('.product-title').textContent;
+    const productPrice = productCard.querySelector('.current-price').textContent;
+    const productImage = productCard.querySelector('img').src;
+    const productDesc = "This is a detailed description of the product that would normally come from your database or API.";
+    
+    const quickViewHTML = `
+        <div class="quick-view-grid">
+            <div class="quick-view-image">
+                <img src="${productImage}" alt="${productName}">
+            </div>
+            <div class="quick-view-info">
+                <h3>${productName}</h3>
+                <div class="price">${productPrice}</div>
+                <p class="description">${productDesc}</p>
+                <div class="quick-view-actions">
+                    <button class="add-to-cart" onclick="addToCart(this.parentElement.parentElement.parentElement.querySelector('.add-to-cart'))">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this.parentElement.parentElement.parentElement.querySelector('.wishlist-btn'))">
+                        <i class="${wishlistItems.includes(productId) ? 'fas' : 'far'} fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.getElementById('quickViewContent').innerHTML = quickViewHTML;
+    openModal('quickViewModal');
+}
+
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = 'flex';
+    setTimeout(() => {
+        modal.style.opacity = '1';
+        modal.querySelector('.modal-content').classList.add('animate__animated', 'animate__fadeInUp');
+    }, 10);
+    
+    // Disable body scrolling
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.querySelector('.modal-content').classList.add('animate__animated', 'animate__fadeOutDown');
+    
+    setTimeout(() => {
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.display = 'none';
+            modal.querySelector('.modal-content').classList.remove('animate__animated', 'animate__fadeOutDown');
+        }, 300);
+        
+        // Re-enable body scrolling
+        document.body.style.overflow = 'auto';
+    }, 10);
+}
+
+function switchModal(fromId, toId) {
+    closeModal(fromId);
+    setTimeout(() => openModal(toId), 300);
+}
+
+function handleLogin() {
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    
+    // Simple validation
+    if (!email || !password) {
+        alert('Please fill in all fields');
+        return;
+    }
+    
+    // Simulate API call
+    setTimeout(() => {
+        alert('Login successful!');
+        closeModal('loginModal');
+    }, 1000);
+}
+
+function handleRegistration() {
+    const name = document.getElementById('registerName').value;
+    const email = document.getElementById('registerEmail').value;
+    const phone = document.getElementById('registerPhone').value;
+    const password = document.getElementById('registerPassword').value;
+    
+    // Simple validation
+    if (!name || !email || !phone || !password) {
+        alert('Please fill in all fields');
+        return;
+    }
+    
+    // Simulate API call
+    setTimeout(() => {
+        alert('Registration successful! Please login.');
+        switchModal('registerModal', 'loginModal');
+    }, 1000);
+}
+
+// ====== Animations ======
+function animateElements() {
+    // Animate elements when they come into view
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.product-card, .footer-column');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2;
+            
+            if (elementPosition < screenPosition) {
+                element.classList.add('animate__animated', 'animate__fadeInUp');
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Run once on load
+}
+
+// ====== Responsive Adjustments ======
+function handleResponsiveAdjustments() {
+    const contactImageSection = document.querySelector('.contact-image-section');
+    
+    if (window.innerWidth <= 768) {
+        if (contactImageSection) contactImageSection.style.display = 'none';
+    } else {
+        if (contactImageSection) contactImageSection.style.display = 'block';
+    }
+}
+
+window.addEventListener('resize', handleResponsiveAdjustments);
+handleResponsiveAdjustments(); // Run once on load
+    </script>
 </body>
 </html>

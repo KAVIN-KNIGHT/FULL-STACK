@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - MediKart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo (2).png" alt="Pharmacy Logo">
+                <p>MediKart</p>
+            </a>
+        </div>
+        <div class="menu-icon" id="menuToggle">☰</div>
+        <nav>
+            <ul id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="doctors.html">Find Doctors</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="#">Health Records</a></li>
+                <li><a href="#">Diabetes Care</a></li>
+                <li><a href="#">Health Insurance</a></li>
+            </ul>
+        </nav>
+        <div class="login-cart">
+            <a href="cart.html" style="text-decoration:none;">
+                <span class="cart-icon">🛒<span class="cart-count">0</span></span>
+            </a>
+            <button style="color:white" onclick="openModal('loginModal')">Login</button>
+        </div>
+    </header>
+
+    <div class="cart-container">
+        <div class="cart-items">
+            <div class="cart-header">
+                <h2>Your Cart (<span id="cart-item-count">0</span> items)</h2>
+            </div>
+            
+            <div id="cart-items-list">
+                <!-- Cart items will be dynamically inserted here -->
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>Your cart is empty</h3>
+                    <p>Looks like you haven't added anything to your cart yet</p>
+                    <a href="products.html" class="continue-shopping">Continue Shopping</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cart-summary">
+            <h3>Order Summary</h3>
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="cart-subtotal">₹0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span>Free</span>
+            </div>
+            <div class="summary-row">
+                <span>Tax</span>
+                <span id="cart-tax">₹0.00</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total</span>
+                <span id="cart-total">₹0.00</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn"><a style="text-decoration: none ; color:white;"href="checkout.html">Proceed to Checkout</a></button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo (2).png" alt="MediKart Logo">
+                        <p>MediKart</p>
+                    </div>
+                    <p class="footer-description">Your trusted online pharmacy for quality medicines and healthcare products.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms and Conditions</a></li>
+                        <li><a href="return.html">Return and Refund</a></li>
+                    </ul>
+                </div>
+
+                <!-- Health Categories -->
+                <div class="footer-column">
+                    <h3>Health Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-tint"></i> Diabetes Care</a></li>
+                        <li><a href="#"><i class="fas fa-heart"></i> Cardiac Care</a></li>
+                        <li><a href="#"><i class="fas fa-stethoscope"></i> Stomach Care</a></li>
+                        <li><a href="#"><i class="fas fa-pills"></i> Pain Relief</a></li>
+                        <li><a href="#"><i class="fas fa-tooth"></i> Oral Care</a></li>
+                        <li><a href="#"><i class="fas fa-brain"></i> Brain Health</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:rkavin975rk@gmail.com">rkavin975rk@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+916374337696">6374337696</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>123 Health Street, Wellness City</p>
+                        </div>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Subscribe to Newsletter</h4>
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2023 MediKart. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-amazon-pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script >
+        // Cart Data
+let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+const cartItemsList = document.getElementById('cart-items-list');
+const cartItemCount = document.getElementById('cart-item-count');
+const cartSubtotal = document.getElementById('cart-subtotal');
+const cartTax = document.getElementById('cart-tax');
+const cartTotal = document.getElementById('cart-total');
+const checkoutBtn = document.getElementById('checkout-btn');
+
+// Initialize the cart
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartDisplay();
+    updateCartCount();
+    
+    // Mobile menu toggle
+    const menuIcon = document.querySelector(".menu-icon");
+    const navMenu = document.querySelector("nav ul");
+    
+    menuIcon.addEventListener("click", function() {
+        navMenu.classList.toggle("active");
+        this.innerHTML = navMenu.classList.contains("active") ? "✕" : "☰";
+    });
+});
+
+// Update cart display
+function updateCartDisplay() {
+    if (cartItems.length === 0) {
+        cartItemsList.innerHTML = `
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Your cart is empty</h3>
+                <p>Looks like you haven't added anything to your cart yet</p>
+                <a href="products.html" class="continue-shopping">Continue Shopping</a>
+            </div>
+        `;
+        checkoutBtn.style.display = 'none';
+        return;
+    }
+
+    checkoutBtn.style.display = 'block';
+    
+    let itemsHTML = '';
+    let subtotal = 0;
+    
+    cartItems.forEach((item, index) => {
+        subtotal += item.price * item.quantity;
+        
+        itemsHTML += `
+            <div class="cart-item" data-index="${index}">
+                <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                <div class="cart-item-details">
+                    <h3>${item.name}</h3>
+                    <div class="cart-item-price">₹${item.price.toFixed(2)}</div>
+                    <div class="quantity-control">
+                        <button class="quantity-btn minus" onclick="updateQuantity(${index}, -1)">-</button>
+                        <input type="number" class="quantity-input" value="${item.quantity}" min="1" 
+                            onchange="updateQuantityInput(${index}, this.value)">
+                        <button class="quantity-btn plus" onclick="updateQuantity(${index}, 1)">+</button>
+                    </div>
+                    <button class="remove-item" onclick="removeItem(${index})">
+                        <i class="fas fa-trash"></i> Remove
+                    </button>
+                </div>
+            </div>
+        `;
+    });
+    
+    cartItemsList.innerHTML = itemsHTML;
+    
+    const tax = subtotal * 0.1; // 10% tax
+    const total = subtotal + tax;
+    
+    cartItemCount.textContent = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    cartSubtotal.textContent = `₹${subtotal.toFixed(2)}`;
+    cartTax.textContent = `₹${tax.toFixed(2)}`;
+    cartTotal.textContent = `₹${total.toFixed(2)}`;
+}
+
+// Update cart count in header
+function updateCartCount() {
+    const count = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+    document.querySelector('.cart-count').textContent = count;
+    document.querySelector('.cart-count').style.display = count > 0 ? 'flex' : 'none';
+}
+
+// Update quantity with buttons
+function updateQuantity(index, change) {
+    const newQuantity = cartItems[index].quantity + change;
+    
+    if (newQuantity < 1) {
+        removeItem(index);
+        return;
+    }
+    
+    cartItems[index].quantity = newQuantity;
+    saveCart();
+    updateCartDisplay();
+    updateCartCount();
+}
+
+// Update quantity with input
+function updateQuantityInput(index, value) {
+    const newQuantity = parseInt(value);
+    
+    if (isNaN(newQuantity) || newQuantity < 1) {
+        updateCartDisplay();
+        return;
+    }
+    
+    cartItems[index].quantity = newQuantity;
+    saveCart();
+    updateCartDisplay();
+    updateCartCount();
+}
+
+// Remove item from cart
+function removeItem(index) {
+    cartItems.splice(index, 1);
+    saveCart();
+    updateCartDisplay();
+    updateCartCount();
+}
+
+// Save cart to localStorage
+function saveCart() {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+}
+
+// Checkout button handler
+checkoutBtn.addEventListener('click', function() {
+    if (cartItems.length === 0) {
+        alert('Your cart is empty!');
+        return;
+    }
+    
+    // In a real application, this would redirect to checkout
+    alert('Proceeding to checkout!');
+    // window.location.href = 'checkout.html';
+});
+    </script>
+</body>
+</html>

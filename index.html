@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pharmacy Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        
-            <div class="logo">
-                <img src="images/logo (2).png" alt="Pharmacy Logo">
-                <p>MediKart</p>
-            </div>
+        <div class="logo">
+            <img src="images/logo (2).png" alt="Pharmacy Logo">
+            <p>MediKart</p>
+        </div>
+        <div class="menu-icon">☰</div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="doctors.html">Find Doctors</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
                 <li><a href="#">Health Records</a></li>
                 <li><a href="#">Diabetes Care</a></li>
                 <li><a href="#">Health Insurance</a></li>
@@ -25,7 +28,7 @@
         </nav>
         <div class="login-cart">
             <a href="cart.html" style="text-decoration:none;">
-            <span class="cart-icon">🛒</span>
+                <span class="cart-icon">🛒</span>
             </a>
             <button onclick="openModal('loginModal')">Login</button>
         </div>
@@ -33,10 +36,9 @@
 
     <section class="hero">
         <h1 style="font-size:30px">Buy Medicines and Essentials</h1>
-        <input type="text" placeholder="Search Medicines">
+        <button ><a href="products.html" > Explore</a></button>
     </section>
     
-
     <section class="services">
         <div class="service-card" style="background: linear-gradient(to right, #fff7fa, #fdeef2);">💰 20% Off on Skin Care</div>
         <div class="service-card" style="background: linear-gradient(to right, #faf5ff, #f3ebff);">💰 30% Off on Hair Care</div>
@@ -45,8 +47,6 @@
         <div class="service-card" style="background: linear-gradient(to right, #f9f7ff, #f0ebff);">🔬 Lab Tests</div>
     </section>
     
-    
-
     <section class="health-categories">
         <h2>Browse by Health Conditions</h2>
         <div class="categories">
@@ -58,328 +58,271 @@
         </div>
     </section>
     
-<section  style="background-color:white"class="why-choose-us">
-    <h2>Why Choose Us?</h2>
-    <div class="reasons">
-        <div style="background: linear-gradient(to right, #fff7fa, #fdeef2);" class="reason-card">
-            <div class="reason-image">
-                <img src="images/delivery.png" alt="Fast Delivery Icon">
+    <section style="background-color:white" class="why-choose-us">
+        <h2>Why Choose Us?</h2>
+        <div class="reasons">
+            <div style="background: linear-gradient(to right, #fff7fa, #fdeef2);" class="reason-card">
+                <div class="reason-image">
+                    <img src="images/delivery.png" alt="Fast Delivery Icon">
+                </div>
+                <h3>Fast Delivery</h3>
+                <p>We guarantee quick and reliable delivery for your convenience, no matter where you are.</p>
             </div>
-            <h3>Fast Delivery</h3>
-            <p>We guarantee quick and reliable delivery for your convenience, no matter where you are.</p>
-        </div>
-        <div style="background: linear-gradient(to right, #f9f7ff, #f0ebff);" class="reason-card">
-            <div class="reason-image">
-                <img src="images/partners.png" alt="Trusted Quality Icon">
+            <div style="background: linear-gradient(to right, #f9f7ff, #f0ebff);" class="reason-card">
+                <div class="reason-image">
+                    <img src="images/partners.png" alt="Trusted Quality Icon">
+                </div>
+                <h3>Trusted Quality</h3>
+                <p>All our products come from certified suppliers and are tested for quality, ensuring your safety.</p>
             </div>
-            <h3>Trusted Quality</h3>
-            <p>All our products come from certified suppliers and are tested for quality, ensuring your safety.</p>
-        </div>
-        <div  style="background: linear-gradient(to right, #f5fbff, #e8f4ff); "class="reason-card">
-            <div class="reason-image">
-                <img src="images/satisfaction.png" alt="Customer Satisfaction Icon">
+            <div style="background: linear-gradient(to right, #f5fbff, #e8f4ff);" class="reason-card">
+                <div class="reason-image">
+                    <img src="images/satisfaction.png" alt="Customer Satisfaction Icon">
+                </div>
+                <h3>Customer Satisfaction</h3>
+                <p>We care about your health and satisfaction, providing top-notch customer service and support.</p>
             </div>
-            <h3>Customer Satisfaction</h3>
-            <p>We care about your health and satisfaction, providing top-notch customer service and support.</p>
         </div>
-    </div>
-</section>
+    </section>
     
-        <footer>
-            <div class="footer-content">
-                <!-- Quick Links Section -->
-                <div class="footer-section">
+     <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo (2).png" alt="MediKart Logo">
+                        <p>MediKart</p>
+                    </div>
+                    <p class="footer-description">Your trusted online pharmacy for quality medicines and healthcare products.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="aboutus.html">About Us</a></li>
                         <li><a href="contactus.html">Contact Us</a></li>
                         <li><a href="faq.html">FAQ</a></li>
                         <li><a href="privacypolicy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms and Condition</a></li>
+                        <li><a href="terms.html">Terms and Conditions</a></li>
                         <li><a href="return.html">Return and Refund</a></li>
                     </ul>
                 </div>
-        
-                <!-- Contact Information Section -->
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>Email: <a href="mailto:rkavin975rk@gmail.com">rkavin975rk@gmail.com</a></p>
-                    <p>Phone: <a href="tel:+916374337696">6374337696</a></p>
-                    <p>Address: 123 Health Street, Wellness City</p>
-                </div>
-        
-                <!-- Social Media Section -->
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <ul class="social-links">
-                        <li>📘 <a href="#">Facebook</a></li>
-                        <li>🐦 <a href="#">Twitter</a></li>
-                        <li>📸 <a href="#">Instagram</a></li>
+
+                <!-- Health Categories -->
+                <div class="footer-column">
+                    <h3>Health Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-tint"></i> Diabetes Care</a></li>
+                        <li><a href="#"><i class="fas fa-heart"></i> Cardiac Care</a></li>
+                        <li><a href="#"><i class="fas fa-stethoscope"></i> Stomach Care</a></li>
+                        <li><a href="#"><i class="fas fa-pills"></i> Pain Relief</a></li>
+                        <li><a href="#"><i class="fas fa-tooth"></i> Oral Care</a></li>
+                        <li><a href="#"><i class="fas fa-brain"></i> Brain Health</a></li>
                     </ul>
                 </div>
+
+                <!-- Contact Info -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:rkavin975rk@gmail.com">rkavin975rk@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+916374337696">6374337696</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>123 Health Street, Wellness City</p>
+                        </div>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Subscribe to Newsletter</h4>
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
             </div>
-        </footer>
-        
-        <div id="loginModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('loginModal')">×</span>
-                <h2>Login</h2>
-                <form id="loginForm">
-                    <label>Email:</label>
+
+            <div class="footer-bottom">
+                <p>© 2023 MediKart. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-amazon-pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">×</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
                     <input type="email" id="loginEmail" required>
-    
-                    <label>Password:</label>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password:</label>
                     <input type="password" id="loginPassword" required>
-    
-                    <button type="submit">Login</button>
-                    <p>Don't have an account? <a href="#" onclick="switchModal('loginModal', 'registerModal')">Register</a></p>
-                </form>
-            </div>
+                </div>
+                <button type="submit">Login</button>
+                <p class="text">Don't have an account? <a href="#" onclick="switchModal('loginModal', 'registerModal')">Register</a></p>
+            </form>
         </div>
+    </div>
     
-        <div id="registerModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('registerModal')">×</span>
-                <h2>Register</h2>
-                <form id="registerForm">
-                    <label>Full Name:</label>
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">×</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
                     <input type="text" id="fullName" required>
-    
-                    <label>Email:</label>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email:</label>
                     <input type="email" id="registerEmail" required>
-    
-                    <label>Phone:</label>
+                </div>
+                <div class="form-group">
+                    <label for="registerPhone">Phone:</label>
                     <input type="text" id="registerPhone" required>
-    
-                    <label>Password:</label>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password:</label>
                     <input type="password" id="registerPassword" required>
-    
-                    <button type="submit">Register</button>
-                    <p>Already have an account? <a href="#" onclick="switchModal('registerModal', 'loginModal')">Login</a></p>
-                </form>
-            </div>
+                </div>
+                <button type="submit">Register</button>
+                <p class="text">Already have an account? <a href="#" onclick="switchModal('registerModal', 'loginModal')">Login</a></p>
+            </form>
         </div>
-    
-        <script>
-            // Open Modal Function
-            function openModal(modalId) {
-                let modal = document.getElementById(modalId);
-                modal.style.display = "flex";
-                setTimeout(() => { modal.style.opacity = "1"; }, 100); // Fade-in effect
-            }
-    
-            // Close Modal Function
-            function closeModal(modalId) {
-                let modal = document.getElementById(modalId);
-                modal.style.opacity = "0"; // Fade-out effect
-                setTimeout(() => { modal.style.display = "none"; }, 300);
-            }
-    
-            // Switch Between Login & Register Modals
-            function switchModal(closeId, openId) {
-                closeModal(closeId);
-                setTimeout(() => openModal(openId), 300);
-            }
-    
-            // Close Modal on Outside Click
-            window.onclick = function(event) {
-                if (event.target.classList.contains('modal')) {
-                    event.target.style.display = "none";
-                }
+    </div>
+
+    <script>
+        // ====== Mobile Menu Toggle ======
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuIcon = document.querySelector(".menu-icon");
+            const navMenu = document.querySelector("nav ul");
+
+            menuIcon.addEventListener("click", function () {
+                navMenu.classList.toggle("active");
+                this.innerHTML = navMenu.classList.contains("active") ? "✕" : "☰";
+            });
+            
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll("nav a").forEach(link => {
+                link.addEventListener("click", function() {
+                    if (window.innerWidth <= 768) {
+                        navMenu.classList.remove("active");
+                        menuIcon.innerHTML = "☰";
+                    }
+                });
+            });
+            
+            // Animate elements when they come into view
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.service-card, .category-card, .reason-card');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.style.opacity = "1";
+                        element.style.transform = "translateY(0)";
+                    }
+                });
             };
-    
-            // Login Form Validation
-            document.getElementById("loginForm").addEventListener("submit", function(event) {
-                event.preventDefault();
-    
-                let email = document.getElementById("loginEmail").value.trim();
-                let password = document.getElementById("loginPassword").value.trim();
-                let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    
-                if (!emailPattern.test(email)) {
-                    alert("Enter a valid email address.");
-                    return;
-                }
-                if (password.length < 6) {
-                    alert("Password must be at least 6 characters.");
-                    return;
-                }
-    
-                alert("Login successful!");
-                closeModal("loginModal");
-            });
-    
-            // Registration Form Validation
-            document.getElementById("registerForm").addEventListener("submit", function(event) {
-                event.preventDefault();
-    
-                let name = document.getElementById("fullName").value.trim();
-                let email = document.getElementById("registerEmail").value.trim();
-                let phone = document.getElementById("registerPhone").value.trim();
-                let password = document.getElementById("registerPassword").value.trim();
-                let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-                let phonePattern = /^[0-9]{10}$/;
-    
-                if (!emailPattern.test(email)) {
-                    alert("Enter a valid email address.");
-                    return;
-                }
-                if (!phonePattern.test(phone)) {
-                    alert("Enter a valid 10-digit phone number.");
-                    return;
-                }
-                if (password.length < 6) {
-                    alert("Password must be at least 6 characters.");
-                    return;
-                }
-    
-                alert("Registration successful!");
-                closeModal("registerModal");
-            });
-        </script>
-    
-    </body>
-    </html>
-    
-        <script>
-            // Function to open a modal
-            function openModal(modalId) {
-                document.getElementById(modalId).style.display = "flex";
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on load
+        });
+
+        // ====== Modal Functions ======
+        function openModal(modalId) {
+            let modal = document.getElementById(modalId);
+            modal.style.display = "flex";
+            setTimeout(() => { modal.style.opacity = "1"; }, 100);
+        }
+
+        function closeModal(modalId) {
+            let modal = document.getElementById(modalId);
+            modal.style.opacity = "0";
+            setTimeout(() => { modal.style.display = "none"; }, 300);
+        }
+
+        function switchModal(closeId, openId) {
+            closeModal(closeId);
+            setTimeout(() => openModal(openId), 300);
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
             }
-    
-            // Function to close a modal
-            function closeModal(modalId) {
-                document.getElementById(modalId).style.display = "none";
+        };
+
+        // ====== Form Validation ======
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let email = document.getElementById("loginEmail").value.trim();
+            let password = document.getElementById("loginPassword").value.trim();
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (!emailPattern.test(email)) {
+                alert("Enter a valid email address.");
+                return;
             }
-    
-            // Close modal when clicking outside of it
-            window.onclick = function(event) {
-                let loginModal = document.getElementById("loginModal");
-                if (event.target === loginModal) {
-                    closeModal("loginModal");
-                }
-            };
-    
-            // Handle login form submission
-            document.getElementById("loginForm").addEventListener("submit", function(event) {
-                event.preventDefault(); // Prevent page reload
-                alert("Login submitted! (Add your login logic here)");
-                closeModal("loginModal");
-            });
-            document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent page reload
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters.");
+                return;
+            }
 
-    // Get form values
-    let email = document.getElementById("email").value.trim();
-    let password = document.getElementById("password").value.trim();
+            alert("Login successful!");
+            closeModal("loginModal");
+        });
 
-    // Regular expression for validating email
-    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-    // Validation check
-    if (email === "" || password === "") {
-        alert("All fields are required!");
-        return;
-    }
-    
-    if (!emailPattern.test(email)) {
-        alert("Please enter a valid email address.");
-        return;
-    }
+            let name = document.getElementById("fullName").value.trim();
+            let email = document.getElementById("registerEmail").value.trim();
+            let phone = document.getElementById("registerPhone").value.trim();
+            let password = document.getElementById("registerPassword").value.trim();
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            let phonePattern = /^[0-9]{10}$/;
 
-    if (password.length < 6) {
-        alert("Password must be at least 6 characters long.");
-        return;
-    }
+            if (!emailPattern.test(email)) {
+                alert("Enter a valid email address.");
+                return;
+            }
+            if (!phonePattern.test(phone)) {
+                alert("Enter a valid 10-digit phone number.");
+                return;
+            }
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters.");
+                return;
+            }
 
-    // If validation passes
-    alert("Login successful! (Add your login logic here)");
-    closeModal("loginModal"); // Close modal after successful validation
-});
-// Function to open a modal with animation
-function openModal(modalId) {
-    let modal = document.getElementById(modalId);
-    modal.style.display = "flex";
-    modal.style.opacity = "0";
-    setTimeout(() => { modal.style.opacity = "1"; }, 100); // Fade-in effect
-}
-
-// Function to close a modal with animation
-function closeModal(modalId) {
-    let modal = document.getElementById(modalId);
-    modal.style.opacity = "0"; // Fade-out effect
-    setTimeout(() => { modal.style.display = "none"; }, 300);
-}
-
-// Close modal when clicking outside
-window.onclick = function(event) {
-    let loginModal = document.getElementById("loginModal");
-    let registerModal = document.getElementById("registerModal");
-
-    if (event.target === loginModal) closeModal("loginModal");
-    if (event.target === registerModal) closeModal("registerModal");
-};
-
-// Login Form Validation
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    let email = document.getElementById("email").value.trim();
-    let password = document.getElementById("password").value.trim();
-    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-    if (email === "" || password === "") {
-        alert("All fields are required!");
-        return;
-    }
-    if (!emailPattern.test(email)) {
-        alert("Enter a valid email address.");
-        return;
-    }
-    if (password.length < 6) {
-        alert("Password must be at least 6 characters.");
-        return;
-    }
-
-    alert("Login successful!");
-    closeModal("loginModal");
-});
-
-// Registration Form Validation
-document.getElementById("registerForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    let name = document.getElementById("regName").value.trim();
-    let email = document.getElementById("regEmail").value.trim();
-    let phone = document.getElementById("regPhone").value.trim();
-    let password = document.getElementById("regPassword").value.trim();
-    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    let phonePattern = /^[0-9]{10}$/;
-
-    if (name === "" || email === "" || phone === "" || password === "") {
-        alert("All fields are required!");
-        return;
-    }
-    if (!emailPattern.test(email)) {
-        alert("Enter a valid email address.");
-        return;
-    }
-    if (!phonePattern.test(phone)) {
-        alert("Enter a valid 10-digit phone number.");
-        return;
-    }
-    if (password.length < 6) {
-        alert("Password must be at least 6 characters.");
-        return;
-    }
-
-    alert("Registration successful!");
-    closeModal("registerModal");
-});
-
-
-        </script>
-        
-       
-    
-    
+            alert("Registration successful!");
+            closeModal("registerModal");
+        });
+    </script>
+</body>
+</html>

@@ -4,104 +4,778 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Return & Refund Policy - MediKart</title>
-    <link rel="stylesheet" href="privacypolicy.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+       
+:root {
+    --primary-color: #004d40;
+    --primary-dark: #002f24;
+    --primary-light: #006d5b;
+    --text-color: #333;
+    --light-gray: #f5f5f5;
+    --white: #ffffff; 
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--white);
+    overflow-x: hidden;
+}
+
+/* ====== Header Styles ====== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+    padding: 15px 5%;
+    box-shadow: var(--shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 50px;
+    transition: var(--transition);
+}
+
+.logo p {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: var(--transition);
+    padding: 5px 0;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    bottom: 0;
+    left: 0;
+    transition: var(--transition);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Mobile Menu */
+.menu-icon {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--primary-color);
+    transition: var(--transition);
+    z-index: 1001;
+}
+
+.menu-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Login/Cart */
+.login-cart {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.cart-icon {
+    font-size: 24px;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+}
+
+.cart-icon:hover {
+    transform: scale(1.1);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+        /* Policy Banner */
+        .policy-banner {
+            background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+            padding: 120px 5% 60px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .policy-banner h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .policy-banner p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            animation: fadeIn 1.5s ease;
+        }
+
+        /* Policy Content */
+        .policy-wrapper {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .policy-container {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 40px;
+            animation: fadeIn 1s ease;
+        }
+
+        .policy-container h2 {
+            color: var(--primary-color);
+            padding: 15px 0;
+            margin: 20px 0 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .policy-container h2:hover {
+            color: var(--primary-dark);
+        }
+
+        .policy-container .content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .policy-container .content.show {
+            max-height: 1000px;
+            padding: 20px;
+        }
+
+        .policy-container p, .policy-container li {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .policy-container ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .policy-container li {
+            margin-bottom: 10px;
+        }
+
+        .policy-container a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .policy-container a:hover {
+            text-decoration: underline;
+        }
+
+        .arrow {
+            font-size: 0.8em;
+            transition: var(--transition);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--white);
+            padding: 60px 5% 30px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            padding: 15px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+        }
+
+        .footer-logo p {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .footer-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .footer-column h3 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-info {
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .contact-item span {
+            font-size: 18px;
+            color: var(--primary-color);
+        }
+
+        .contact-item a, .contact-item p {
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .newsletter {
+            margin-top: 25px;
+        }
+
+        .newsletter h4 {
+            font-size: 16px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .newsletter input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .newsletter button {
+            width: 100%;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            font-size: 18px;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #eee;
+            padding-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 20px;
+        }
+
+        .payment-methods span {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .policy-banner h1 {
+                font-size: 2.2rem;
+            }
+            
+            .policy-container {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            
+            nav ul {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                padding: 12px 0;
+            }
+            
+            .menu-icon {
+                display: block;
+            }
+            
+            .policy-banner {
+                padding: 100px 20px 50px;
+                margin-top: 70px;
+            }
+            
+            .policy-banner h1 {
+                font-size: 2rem;
+            }
+            
+            .policy-wrapper {
+                padding: 40px 20px;
+            }
+            
+            .policy-container {
+                padding: 25px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .policy-banner h1 {
+                font-size: 1.8rem;
+            }
+            
+            .policy-banner p {
+                font-size: 1rem;
+            }
+            
+            .policy-container {
+                padding: 20px 15px;
+            }
+            
+            .policy-container h2 {
+                font-size: 1.2rem;
+                padding: 12px 0;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+            
+            .footer-social {
+                justify-content: center;
+            }
+            
+            .contact-item {
+                justify-content: center;
+            }
+            
+            .footer-links li {
+                text-align: center;
+            }
+            
+            .footer-links a {
+                justify-content: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <header>
-        
+     <header>
         <div class="logo">
             <img src="images/logo (2).png" alt="Pharmacy Logo">
             <p>MediKart</p>
         </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="doctors.html">Find Doctors</a></li>
-            <li><a href="#">Health Records</a></li>
-            <li><a href="#">Diabetes Care</a></li>
-            <li><a href="#">Health Insurance</a></li>
-        </ul>
-    </nav>
-    <div class="login-cart">
-        <a href="cart.html" style="text-decoration:none;">
-        <span class="cart-icon">🛒</span>
-        </a>
-        <button onclick="openModal('loginModal')">Login</button>
-    </div>
-</header>
-
-
-<section class="policy-banner">
-    <h1>Return & Refund Policy</h1>
-    <p>Last Updated: March 2025</p>
-</section>
-
-<section class="policy-wrapper">
-    <div class="policy-container">
-        <h2 onclick="toggleSection(this)">1. Return Eligibility <span class="arrow">▼</span></h2>
-        <div class="content">
-            <p>We aim to provide high-quality healthcare products, but if you’re not satisfied with your purchase, you may be eligible for a return under the following conditions:</p>
+        <div class="menu-icon">☰</div>
+        <nav>
             <ul>
-                <li><strong>Damaged, Defective, or Incorrect Products:</strong> If the product is delivered damaged, defective, or different from what you ordered, you can request a return.</li>
-                <li><strong>Unopened and Unused Items:</strong> The product must be unused, in its original packaging, and in a resellable condition.</li>
-                <li><strong>Return Request Period:</strong> Returns must be requested within <strong>7 days</strong> of receiving the order. Requests made beyond this period will not be accepted.</li>
-                <li><strong>Non-Returnable Items:</strong> Certain healthcare products like prescription medicines, intimate hygiene products, and medical devices are not eligible for returns due to health and safety concerns.</li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="doctors.html">Find Doctors</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="#">Health Records</a></li>
+                <li><a href="#">Diabetes Care</a></li>
+                <li><a href="#">Health Insurance</a></li>
             </ul>
+        </nav>
+        <div class="login-cart">
+            <a href="cart.html" style="text-decoration:none;">
+                <span class="cart-icon">🛒</span>
+            </a>
+            <button onclick="openModal('loginModal')">Login</button>
         </div>
+    </header>
 
-        <h2 onclick="toggleSection(this)">2. Refund Process <span class="arrow">▼</span></h2>
-        <div class="content">
-            <p>If your return request is approved, the refund process will be initiated as follows:</p>
-            <ul>
-                <li><strong>Refund Timeframe:</strong> Refunds will be processed within <strong>7-10 business days</strong> after the returned item has been received and inspected.</li>
-                <li><strong>Refund Method:</strong> Refunds will be credited to the <strong>original payment method</strong> used for the purchase. If the payment was made via COD (Cash on Delivery), refunds will be transferred to your bank account.</li>
-                <li><strong>Shipping Costs:</strong> Shipping charges are non-refundable. However, if the return is due to our error (e.g., wrong product shipped), we will cover the return shipping cost.</li>
-                <li><strong>Exchange Option:</strong> If you prefer, we can provide a replacement product instead of a refund.</li>
-            </ul>
+
+    <section class="policy-banner">
+        <h1>Return & Refund Policy</h1>
+        <p>Last Updated: March 2025</p>
+    </section>
+
+    <section class="policy-wrapper">
+        <div class="policy-container">
+            <h2 onclick="toggleSection(this)">1. Return Eligibility <span class="arrow">▼</span></h2>
+            <div class="content">
+                <p>We aim to provide high-quality healthcare products, but if you're not satisfied with your purchase, you may be eligible for a return under the following conditions:</p>
+                <ul>
+                    <li><strong>Damaged, Defective, or Incorrect Products:</strong> If the product is delivered damaged, defective, or different from what you ordered, you can request a return.</li>
+                    <li><strong>Unopened and Unused Items:</strong> The product must be unused, in its original packaging, and in a resellable condition.</li>
+                    <li><strong>Return Request Period:</strong> Returns must be requested within <strong>7 days</strong> of receiving the order. Requests made beyond this period will not be accepted.</li>
+                    <li><strong>Non-Returnable Items:</strong> Certain healthcare products like prescription medicines, intimate hygiene products, and medical devices are not eligible for returns due to health and safety concerns.</li>
+                </ul>
+            </div>
+
+            <h2 onclick="toggleSection(this)">2. Refund Process <span class="arrow">▼</span></h2>
+            <div class="content">
+                <p>If your return request is approved, the refund process will be initiated as follows:</p>
+                <ul>
+                    <li><strong>Refund Timeframe:</strong> Refunds will be processed within <strong>7-10 business days</strong> after the returned item has been received and inspected.</li>
+                    <li><strong>Refund Method:</strong> Refunds will be credited to the <strong>original payment method</strong> used for the purchase. If the payment was made via COD (Cash on Delivery), refunds will be transferred to your bank account.</li>
+                    <li><strong>Shipping Costs:</strong> Shipping charges are non-refundable. However, if the return is due to our error (e.g., wrong product shipped), we will cover the return shipping cost.</li>
+                    <li><strong>Exchange Option:</strong> If you prefer, we can provide a replacement product instead of a refund.</li>
+                </ul>
+            </div>
+
+            <h2 onclick="toggleSection(this)">3. How to Request a Return <span class="arrow">▼</span></h2>
+            <div class="content">
+                <p>Follow these steps to request a return:</p>
+                <ul>
+                    <li>Contact our customer support via email at <a href="mailto:support@medikart.com">support@medikart.com</a> or call <strong>1800-123-456</strong>.</li>
+                    <li>Provide your order number, a brief description of the issue, and images of the product (if damaged or incorrect).</li>
+                    <li>Our team will verify your request and provide you with return instructions.</li>
+                    <li>After we receive the returned product, we will process your refund or replacement.</li>
+                </ul>
+            </div>
+
+            <h2 onclick="toggleSection(this)">4. Contact for Returns & Support <span class="arrow">▼</span></h2>
+            <div class="content">
+                <p>If you have any concerns regarding your return or refund, please reach out to us:</p>
+                <ul>
+                    <li>Email: <a href="mailto:support@medikart.com">support@medikart.com</a></li>
+                    <li>Phone: <strong>1800-123-456</strong> (Available Mon-Sat, 9 AM - 7 PM)</li>
+                    <li>Live Chat: Available on our website during business hours</li>
+                </ul>
+            </div>
         </div>
+    </section>
 
-        <h2 onclick="toggleSection(this)">3. How to Request a Return <span class="arrow">▼</span></h2>
-        <div class="content">
-            <p>Follow these steps to request a return:</p>
-            <ul>
-                <li>Contact our customer support via email at <a href="mailto:support@medikart.com">support@medikart.com</a> or call <strong>1800-123-456</strong>.</li>
-                <li>Provide your order number, a brief description of the issue, and images of the product (if damaged or incorrect).</li>
-                <li>Our team will verify your request and provide you with return instructions.</li>
-                <li>After we receive the returned product, we will process your refund or replacement.</li>
-            </ul>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo (2).png" alt="MediKart Logo">
+                        <p>MediKart</p>
+                    </div>
+                    <p class="footer-description">Your trusted online pharmacy for quality medicines and healthcare products.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms and Conditions</a></li>
+                        <li><a href="return.html">Return and Refund</a></li>
+                    </ul>
+                </div>
+
+                <!-- Health Categories -->
+                <div class="footer-column">
+                    <h3>Health Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-tint"></i> Diabetes Care</a></li>
+                        <li><a href="#"><i class="fas fa-heart"></i> Cardiac Care</a></li>
+                        <li><a href="#"><i class="fas fa-stethoscope"></i> Stomach Care</a></li>
+                        <li><a href="#"><i class="fas fa-pills"></i> Pain Relief</a></li>
+                        <li><a href="#"><i class="fas fa-tooth"></i> Oral Care</a></li>
+                        <li><a href="#"><i class="fas fa-brain"></i> Brain Health</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:rkavin975rk@gmail.com">rkavin975rk@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+916374337696">6374337696</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>123 Health Street, Wellness City</p>
+                        </div>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Subscribe to Newsletter</h4>
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2023 MediKart. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-amazon-pay"></i>
+                </div>
+            </div>
         </div>
+    </footer>
 
-        <h2 onclick="toggleSection(this)">4. Contact for Returns & Support <span class="arrow">▼</span></h2>
-        <div class="content">
-            <p>If you have any concerns regarding your return or refund, please reach out to us:</p>
-            <ul>
-                <li>Email: <a href="mailto:support@medikart.com">support@medikart.com</a></li>
-                <li>Phone: <strong>1800-123-456</strong> (Available Mon-Sat, 9 AM - 7 PM)</li>
-                <li>Live Chat: Available on our website during business hours</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<footer>
-    <p>© 2025 MediKart. All rights reserved.</p>
-</footer>
-
-<script >// Toggle collapsible sections
-    function toggleSection(element) {
-        let content = element.nextElementSibling;
-        content.classList.toggle("show");
-    
-        // Change arrow direction
-        let arrow = element.querySelector(".arrow");
-        if (content.classList.contains("show")) {
-            arrow.innerHTML = "▲";
-        } else {
-            arrow.innerHTML = "▼";
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.classList.toggle('active');
+            
+            // Change icon based on state
+            if (navMenu.classList.contains('active')) {
+                this.innerHTML = '✕';
+            } else {
+                this.innerHTML = '☰';
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    menuToggle.innerHTML = '☰';
+                }
+            });
+        });
+        
+        // Toggle collapsible sections
+        function toggleSection(element) {
+            let content = element.nextElementSibling;
+            content.classList.toggle("show");
+        
+            // Change arrow direction
+            let arrow = element.querySelector(".arrow");
+            if (content.classList.contains("show")) {
+                arrow.innerHTML = "▲";
+            } else {
+                arrow.innerHTML = "▼";
+            }
         }
-    }
+        
+        // Simulated login modal function
+        function openModal(modalId) {
+            alert('Login modal would open here. In a real implementation, this would show a modal dialog.');
+        }
     </script>
 </body>
 </html>

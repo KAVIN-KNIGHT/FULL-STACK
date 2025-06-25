@@ -3,210 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find Doctors</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
-    <style>
-        /* Reset styles */
-/* Reset styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-/* Body Styling */
-body {
-     /*background: linear-gradient(90deg, #8E897B, #F4C27A, #6FA29A);*/
-    text-align: center;
-    /* Dark Blue → Teal → Warm Gold */
-    background-attachment: fixed; /* Keeps background static */
-    background-size: cover;
-    color: black; /* Ensures text is readable */
-}
-.hero {
-   
-    text-align: center;
-    padding: 70px 20px;
-    color: rgb(8, 7, 7);
-}
-
-header {
+    <title>Find Doctors | MediKart</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="doctors.css"> <!-- Link to external CSS -->
     
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background:white;
-    /*background: linear-gradient(90deg, #8E897B, #F4C27A, #6FA29A);*/
-    padding: 15px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    
-    position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-}
-
-.logo img {
-    
-    height: 50px;
-}
-.logo {
-    display: flex;
-    align-items: center; /* Keeps text and logo aligned */
-    gap: 5%; /* Adds spacing between logo and text */
-}
-
-.logo p {
-    font-size: 20px; /* Adjust size as needed */
-    font-weight: bold;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color:black;
-    font-weight: bold;
-}
-.cart-icon {
-    font-size: 24px;  /* Adjust the size (Default: 16px) */
-    color: #004d40;   /* Change the color */
-    cursor: pointer;  /* Makes it clickable */
-    transition: transform 0.2s ease-in-out; /* Smooth effect */
-}
-
-.login-cart {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-button {
-    background-color: #004d40;
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav {
-        flex-direction: column;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .login-cart {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-}
-
-
-/* Page Title */
-.page-title {
-    font-size: 28px;
-    margin: 20px 0;
-}
-
-/* Specialties Grid */
-.specialties {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    align-items: center;
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-}
-
-/* Specialty Card */
-.specialty-card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease-in-out;
-    width: 180px;
-}
-
-.specialty-card:hover {
-    transform: scale(1.05);
-}
-
-.specialty-card img {
-        width: 80px;
-        height: 80px;
-        margin-bottom: 10px;
-        opacity: 10; /* Makes images slightly transparent */
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    .specialty-card img:hover {
-        opacity: 9; /* Fully visible on hover */
-    }
-.specialty-card p {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-}
-
-
-    </style>
 </head>
 <body>
-
     <header>
-        
         <div class="logo">
-            <img src="images/logo (2).png" alt="Pharmacy Logo">
-            <p>MediKart</p>
+            <a href="index.html">
+                <img src="images/logo (2).png" alt="Pharmacy Logo">
+                <p>MediKart</p>
+            </a>
         </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="doctors.html">Find Doctors</a></li>
-            <li><a href="#">Health Records</a></li>
-            <li><a href="#">Diabetes Care</a></li>
-            <li><a href="#">Health Insurance</a></li>
-        </ul>
-    </nav>
-    <div class="login-cart">
-        <a href="cart.html" style="text-decoration:none;">
-        <span class="cart-icon">🛒</span>
-        </a>
-        <button onclick="openModal('loginModal')">Login</button>
-    </div>
-</header>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav id="mainNav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="doctors.html" class="active">Find Doctors</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="#">Health Records</a></li>
+                <li><a href="#">Diabetes Care</a></li>
+                <li><a href="#">Health Insurance</a></li>
+            </ul>
+        </nav>
+        <div class="login-cart">
+            <a href="cart.html" style="text-decoration:none;">
+                <span class="cart-icon">🛒</span>
+            </a>
+            <button onclick="openModal('loginModal')">Login</button>
+        </div>
+    </header>
+
     <section class="hero">
-        <h1 style="font-size:30px">Browse by Specialties</h1>
-        <input type="text" placeholder="Search Doctors">
+        <h1>Find the Right Doctor for You</h1>
+        <input type="text" placeholder="Search by doctor name or specialty...">
     </section>
 
-
+    <h2 class="page-title">Browse by Specialties</h2>
     
     <div class="specialties">
         <div class="specialty-card" style="background: linear-gradient(to right, #fff7fa, #fdeef2);">
@@ -259,6 +94,106 @@ button {
             <p>Endocrinology</p>
         </div>
     </div>
-    
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo (2).png" alt="MediKart Logo">
+                        <p>MediKart</p>
+                    </div>
+                    <p class="footer-description">Your trusted online pharmacy for quality medicines and healthcare products.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms and Conditions</a></li>
+                        <li><a href="return.html">Return and Refund</a></li>
+                    </ul>
+                </div>
+
+                <!-- Health Categories -->
+                <div class="footer-column">
+                    <h3>Health Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-tint"></i> Diabetes Care</a></li>
+                        <li><a href="#"><i class="fas fa-heart"></i> Cardiac Care</a></li>
+                        <li><a href="#"><i class="fas fa-stethoscope"></i> Stomach Care</a></li>
+                        <li><a href="#"><i class="fas fa-pills"></i> Pain Relief</a></li>
+                        <li><a href="#"><i class="fas fa-tooth"></i> Oral Care</a></li>
+                        <li><a href="#"><i class="fas fa-brain"></i> Brain Health</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:rkavin975rk@gmail.com">rkavin975rk@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+916374337696">6374337696</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>123 Health Street, Wellness City</p>
+                        </div>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Subscribe to Newsletter</h4>
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2023 MediKart. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-amazon-pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mainNav a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.getElementById('mainNav');
+                nav.classList.remove('active');
+            });
+        });
+        
+        // Simulated login modal function
+        function openModal(modalId) {
+            alert('Login modal would open here. In a real implementation, this would show a modal dialog.');
+        }
+    </script>
 </body>
 </html>

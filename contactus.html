@@ -4,108 +4,1091 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - MediKart</title>
-    <link rel="stylesheet" href="contactus.css">
-    <script>
-        // Open Form Popup
-function openForm() {
-    document.getElementById("contactFormPopup").style.display = "flex";
-}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #004d40;
+            --primary-dark: #002f24;
+            --primary-light: #006d5b;
+            --text-color: #333;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease-in-out;
+        }
 
-// Close Form Popup
-function closeForm() {
-    document.getElementById("contactFormPopup").style.display = "none";
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-// Form Validation
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
 
-    let name = document.getElementById("name").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let message = document.getElementById("message").value.trim();
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            padding: 15px 5%;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
 
-    if (name === "" || email === "" || message === "") {
-        alert("All fields are required!");
-        return;
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    if (!/\S+@\S+\.\S+/.test(email)) {
-        alert("Enter a valid email address.");
-        return;
-    }
+        .logo img {
+            height: 50px;
+            transition: var(--transition);
+        }
 
-    alert("Message sent successfully!");
-    closeForm();
-});
+        .logo p {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
 
-    </script>
+        /* Navigation */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu */
+        .menu-icon {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--primary-color);
+            transition: var(--transition);
+            z-index: 1001;
+        }
+
+        .menu-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Login/Cart */
+        .login-cart {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .cart-icon {
+            font-size: 24px;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Contact Section */
+        .contact-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 100px 5% 80px;
+            background-color: var(--light-gray);
+        }
+
+        .contact-container {
+            display: flex;
+            max-width: 1100px;
+            width: 100%;
+            height: 500px;
+            position: relative;
+            box-shadow: var(--shadow);
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: var(--white);
+            transition: var(--transition);
+        }
+
+        .contact-button-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .contact-button-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            animation: fadeInDown 1s ease;
+        }
+
+        .contact-button-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
+            animation: fadeIn 1.5s ease;
+        }
+
+        .open-form-btn {
+            padding: 15px 30px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            animation: fadeInUp 1s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .open-form-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-image-section {
+            flex: 1;
+            background: url('images/aboutus.jpg') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .contact-image-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+           
+        }
+
+        /* Modal Styles - UPDATED */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            overflow-y: auto; /* Enable scrolling if needed */
+            padding: 20px; /* Add padding to prevent form touching edges */
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh; /* Limit height to viewport */
+            overflow-y: auto; /* Enable scrolling for content */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+            position: relative;
+            margin: auto; /* Center vertically */
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close:hover {
+            color: var(--primary-color);
+            transform: rotate(90deg);
+        }
+
+        .modal-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .modal-content p {
+            color: var(--text-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Form Styles - UPDATED */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: -10px;
+            font-size: 14px;
+        }
+
+        input, textarea, select {
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        select {
+            padding: 10px;
+            background-color: white;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 77, 64, 0.2);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        form button {
+            margin-top: 10px;
+            padding: 12px;
+            font-size: 16px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--white);
+            padding: 60px 5% 30px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            padding: 15px;
+            animation: fadeIn 1s ease;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            transition: var(--transition);
+        }
+
+        .footer-logo p {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .footer-logo:hover img, .footer-logo:hover p {
+            transform: translateX(5px);
+        }
+
+        .footer-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .footer-column h3 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .footer-column:hover h3::after {
+            width: 80px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+            transition: var(--transition);
+        }
+
+        .footer-links li:hover {
+            transform: translateX(5px);
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-info {
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+        }
+
+        .contact-item span {
+            font-size: 18px;
+            color: var(--primary-color);
+        }
+
+        .contact-item a, .contact-item p {
+            color: #555;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 0;
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .newsletter {
+            margin-top: 25px;
+        }
+
+        .newsletter h4 {
+            font-size: 16px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .newsletter input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .newsletter button {
+            width: 100%;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            font-size: 18px;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #eee;
+            padding-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 20px;
+        }
+
+        .payment-methods span {
+            font-size: 24px;
+            color: var(--primary-color);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .payment-methods span:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .contact-container {
+                height: 450px;
+            }
+            
+            .contact-button-section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            
+            nav ul {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            nav ul.active {
+                display: flex;
+                animation: fadeInDown 0.5s ease;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                padding: 12px 0;
+            }
+            
+            nav ul li a::after {
+                display: none;
+            }
+            
+            .menu-icon {
+                display: block;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .contact-image-section {
+                display: none;
+            }
+            
+            .contact-button-section {
+                padding: 50px 30px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            /* Modal adjustments for mobile */
+            .modal-content {
+                padding: 25px 20px;
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-button-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .contact-button-section p {
+                font-size: 1rem;
+            }
+            
+            .open-form-btn {
+                padding: 12px 25px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+            
+            .footer-social {
+                justify-content: center;
+            }
+            
+            .contact-item {
+                justify-content: center;
+            }
+            
+            .footer-links li {
+                text-align: center;
+            }
+            
+            .footer-links a {
+                justify-content: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            /* Further modal adjustments for small screens */
+            .modal-content {
+                padding: 20px 15px;
+            }
+
+            input, textarea, select {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+
+            textarea {
+                min-height: 80px;
+            }
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-20 {
+            margin-top: 20px;
+        }
+
+        .mb-20 {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-
     <header>
-        
         <div class="logo">
             <img src="images/logo (2).png" alt="Pharmacy Logo">
             <p>MediKart</p>
         </div>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="doctors.html">Find Doctors</a></li>
-            <li><a href="aboutus.html">About us</a></li>
-            <li><a href="#">Health Records</a></li>
-            <li><a href="#">Diabetes Care</a></li>
-            <li><a href="#">Health Insurance</a></li>
-        </ul>
-    </nav>
-    <div class="login-cart">
-        <a href="cart.html" style="text-decoration:none;">
-        <span class="cart-icon">🛒</span>
-        </a>
-        <button onclick="openModal('loginModal')">Login</button>
-    </div>
-</header>
 
-<section class="contact-wrapper">
-    <div class="contact-container">
-        <!-- Left Side: Contact Us Button -->
-        <div class="contact-button-section">
-            <h2>Need Help?</h2>
-            <p>Click below to get in touch with us.</p>
-            <button class="open-form-btn" onclick="openForm()">Contact Us</button>
+        <div class="menu-icon" id="menuToggle">☰</div>
+
+        <nav>
+            <ul id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="doctors.html">Find Doctors</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="#">Health Records</a></li>
+                <li><a href="#">Diabetes Care</a></li>
+                <li><a href="#">Health Insurance</a></li>
+            </ul>
+        </nav>
+
+        <div class="login-cart">
+            <a href="cart.html" style="text-decoration:none;">
+                <span class="cart-icon">🛒</span>
+            </a>
+            <button onclick="openModal('loginModal')">Login</button>
         </div>
+    </header>
 
-        <!-- Right Side: Background Image -->
-        <div class="contact-image-section"></div>
+    <section class="contact-wrapper">
+        <div class="contact-container animate__animated animate__fadeIn">
+            <div class="contact-button-section">
+                <h2 class="animate__animated animate__fadeInDown">Need Help?</h2>
+                <p class="animate__animated animate__fadeIn">Click below to get in touch with us.</p>
+                <button class="open-form-btn animate__animated animate__fadeInUp pulse" onclick="openForm()">Contact Us</button>
+            </div>
+            <div class="contact-image-section"></div>
+        </div>
+    </section>
+
+    <!-- Contact Form Popup -->
+    <div id="contactFormPopup" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeForm()">&times;</span>
+            <h2>Contact Us</h2>
+            <p>Fill out the form, and we'll respond shortly.</p>
+            <form id="contactForm">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number">
+
+                <label for="subject">Subject:</label>
+                <select id="subject" required>
+                    <option value="">Select a subject</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="order">Order Issue</option>
+                    <option value="product">Product Question</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="message">Message:</label>
+                <textarea id="message" placeholder="Write your message" required></textarea>
+
+                <button type="submit" class="animate__animated animate__pulse animate__infinite">Send Message</button>
+            </form>
+        </div>
     </div>
-</section>
 
-<!-- Pop-up Contact Form -->
-<div id="contactFormPopup" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeForm()">&times;</span>
-        <h2>Contact Us</h2>
-        <p>Fill out the form, and we'll respond shortly.</p>
-        <form id="contactForm">
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" placeholder="Enter your name" required>
+   <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Company Info -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo (2).png" alt="MediKart Logo">
+                        <p>MediKart</p>
+                    </div>
+                    <p class="footer-description">Your trusted online pharmacy for quality medicines and healthcare products.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacypolicy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms and Conditions</a></li>
+                        <li><a href="return.html">Return and Refund</a></li>
+                    </ul>
+                </div>
 
-            <label for="message">Message:</label>
-            <textarea id="message" placeholder="Write your message" required></textarea>
+                <!-- Health Categories -->
+                <div class="footer-column">
+                    <h3>Health Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-tint"></i> Diabetes Care</a></li>
+                        <li><a href="#"><i class="fas fa-heart"></i> Cardiac Care</a></li>
+                        <li><a href="#"><i class="fas fa-stethoscope"></i> Stomach Care</a></li>
+                        <li><a href="#"><i class="fas fa-pills"></i> Pain Relief</a></li>
+                        <li><a href="#"><i class="fas fa-tooth"></i> Oral Care</a></li>
+                        <li><a href="#"><i class="fas fa-brain"></i> Brain Health</a></li>
+                    </ul>
+                </div>
 
-            <button type="submit">Send Message</button>
-        </form>
-    </div>
-</div>
+                <!-- Contact Info -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:rkavin975rk@gmail.com">rkavin975rk@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+916374337696">6374337696</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>123 Health Street, Wellness City</p>
+                        </div>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Subscribe to Newsletter</h4>
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
 
-<footer class="fade-in">
-    <p style="text-align:center" class="footer-bottom">© 2025 MediKart. All rights reserved.</p>
-</footer>
+            <div class="footer-bottom">
+                <p>© 2023 MediKart. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-amazon-pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.classList.toggle('active');
+            
+            // Change icon based on state
+            if (navMenu.classList.contains('active')) {
+                this.innerHTML = '✕';
+            } else {
+                this.innerHTML = '☰';
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    menuToggle.innerHTML = '☰';
+                }
+            });
+        });
+        
+        // Contact Form Modal
+        function openForm() {
+            const modal = document.getElementById('contactFormPopup');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Add animation class
+            const modalContent = modal.querySelector('.modal-content');
+            modalContent.classList.add('animate__animated', 'animate__fadeInUp');
+            
+            // Remove animation after it completes
+            setTimeout(() => {
+                modalContent.classList.remove('animate__animated', 'animate__fadeInUp');
+            }, 500);
+        }
+        
+        function closeForm() {
+            const modal = document.getElementById('contactFormPopup');
+            const modalContent = modal.querySelector('.modal-content');
+            
+            // Add fade out animation
+            modalContent.classList.add('animate__animated', 'animate__fadeOutDown');
+            
+            setTimeout(() => {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                modalContent.classList.remove('animate__animated', 'animate__fadeOutDown');
+            }, 300);
+        }
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('contactFormPopup');
+            if (event.target === modal) {
+                closeForm();
+            }
+        });
+        
+        // Form Validation
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value.trim();
+            
+            // Simple validation
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all required fields!');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address!');
+                return;
+            }
+            
+            // Simulate form submission
+            simulateFormSubmission(name, email, subject, message);
+        });
+        
+        function simulateFormSubmission(name, email, subject, message) {
+            // Show loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Show success message
+                alert(`Thank you, ${name}! Your message has been sent successfully. We'll get back to you soon.`);
+                
+                // Reset form
+                contactForm.reset();
+                closeForm();
+                
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        }
+        
+        // Scroll animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.footer-column, .contact-container');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        document.addEventListener('DOMContentLoaded', animateOnScroll);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768 && navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        menuToggle.innerHTML = '☰';
+                    }
+                }
+            });
+        });
+        
+        // Responsive image handling
+        function handleResponsiveImages() {
+            const contactImageSection = document.querySelector('.contact-image-section');
+            
+            if (window.innerWidth <= 768) {
+                contactImageSection.style.display = 'none';
+            } else {
+                contactImageSection.style.display = 'block';
+            }
+        }
+        
+        window.addEventListener('resize', handleResponsiveImages);
+        document.addEventListener('DOMContentLoaded', handleResponsiveImages);
+    </script>
 </body>
 </html>
